@@ -1,17 +1,17 @@
 ﻿- type: entity
   parent: BaseSign
-  id: SignDivingBell
+  id: TPSignDivingBell
   name: diving bell sign
   description: A sign indicating the diving bell
   components:
-    - type: texture
-      texture: Resources/Textures/_TP/Structures/Wallmounts/Signs/DivingBell.png
+    - type: Sprite
+      sprite: _TP/Structures/Wallmounts/Signs/Diving Bell.rsi
 
 - type: entity
   parent: BaseSign
-  id: SignJellid
+  id: TPSignJellid
   name: jellid area sign
   description: A sign indicating that the area ahead is intended for Jellid crew members and does not have an oxygen atmosphere.
   components:
-    - type: texture
-      texture: Resources/Textures/_TP/Structures/Wallmounts/Signs/Jellid.png
+    - type: Sprite
+      sprite: _TP/Structures/Wallmounts/Signs/Jellid.rsi
