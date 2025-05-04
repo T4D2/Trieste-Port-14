@@ -5,7 +5,7 @@
   description: A sign indicating the diving bell
   components:
     - type: Sprite
-      sprite: _TP/Structures/Wallmounts/Signs/Diving Bell.rsi
+      sprite: _TP/Structures/Wallmounts/Signs/DivingBell.rsi
 
 - type: entity
   parent: BaseSign
