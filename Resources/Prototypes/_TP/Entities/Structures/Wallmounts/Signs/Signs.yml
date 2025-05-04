@@ -1,11 +1,12 @@
-﻿- type: entity
+- type: entity
   parent: BaseSign
   id: TPSignDivingBell
   name: diving bell sign
   description: A sign indicating the diving bell
   components:
     - type: Sprite
-      sprite: _TP/Structures/Wallmounts/Signs/DivingBell.rsi
+      sprite: _TP/Structures/Wallmounts/signs.rsi
+      state: DivingBell
 
 - type: entity
   parent: BaseSign
@@ -14,4 +15,5 @@
   description: A sign indicating that the area ahead is intended for Jellid crew members and does not have an oxygen atmosphere.
   components:
     - type: Sprite
-      sprite: _TP/Structures/Wallmounts/Signs/Jellid.rsi
+      sprite: _TP/Structures/Wallmounts/signs.rsi
+      state: Jellid
