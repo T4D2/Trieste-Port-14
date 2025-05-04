@@ -1,1 +1,49 @@
+# Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
 
+#- type: entityTable
+#  id: UnknownShuttlesFriendlyTable
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+
+
+#- type: entityTable
+#  id: UnknownShuttlesFreelanceTable
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+ #   children:
+#    - id: UnknownShuttleSyndieEvacPod
+
+#- type: entityTable
+ # id: UnknownShuttlesHostileTable
+ # table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+ #   children:
+ #   - id: UnknownShuttleInstigator
+   # - id: UnknownShuttlePirate
+
+# Shuttle Game Rules
+
+#- type: entity
+ # id: UnknownShuttleInstigator
+ # parent: BaseUnknownShuttleRule
+#  components:
+ # - type: StationEvent
+#    startAnnouncement: null #dont nark on antags
+ #   weight: 1 #  lower because antags.
+ #   earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+ # - type: LoadMapRule
+#    preloadedGrid: Instigator
+
+#- type: entity
+#  id: UnknownShuttlePirate
+#  parent: BaseUnknownShuttleRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: null
+#    weight: 1
+#    earliestStart: 50
+#  - type: LoadMapRule
+#    preloadedGrid: Corsair
+
+# TODO for pirates: Make a small pirate vessel called the Corsair, which has (at least), a cargo sell console connected to a pallate so that they can get money from their findings.
+# They should also have atmospheric thrusters. Preferably, merge jumping before this is made so that they can jump on and off of their vessel.
+
+# Specs: 3 crew (one captain), one blunderbus and ammo, two rifles and ammo, a handcranked rifle, cutlasses, a copy of the pirate code
