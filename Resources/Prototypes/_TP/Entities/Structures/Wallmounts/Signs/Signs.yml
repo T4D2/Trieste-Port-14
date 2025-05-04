@@ -5,7 +5,7 @@
   description: A sign indicating the diving bell
   components:
     - type: Sprite
-      sprite: _TP/Structures/Wallmounts/signs.rsi
+      sprite: _TP/Structures/Wallmounts/Signs.rsi
       state: DivingBell
 
 - type: entity
@@ -15,5 +15,5 @@
   description: A sign indicating that the area ahead is intended for Jellid crew members and does not have an oxygen atmosphere.
   components:
     - type: Sprite
-      sprite: _TP/Structures/Wallmounts/signs.rsi
+      sprite: _TP/Structures/Wallmounts/Signs.rsi
       state: Jellid
