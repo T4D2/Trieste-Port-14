@@ -1,5 +1,30 @@
 # Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
 
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10 # 10 default
+    reoccurrenceDelay: 30
+    duration: 1
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: RuleGrids
+  - type: LoadMapRule
+
+#- type: entityTable
+ # id: UnknownShuttlesHostileTable
+ # table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+ #   children:
+ #   - id: UnknownShuttleInstigator
+   # - id: UnknownShuttlePirate
+
+  
 #- type: entityTable
 #  id: UnknownShuttlesFriendlyTable
 #  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -11,13 +36,6 @@
 #  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
  #   children:
 #    - id: UnknownShuttleSyndieEvacPod
-
-#- type: entityTable
- # id: UnknownShuttlesHostileTable
- # table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
- #   children:
- #   - id: UnknownShuttleInstigator
-   # - id: UnknownShuttlePirate
 
 # Shuttle Game Rules
 

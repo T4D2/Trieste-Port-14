@@ -40,7 +40,6 @@ public sealed class WaterInteractionSystem : EntitySystem
 
     if (_Noisetimer >= NoiseTimer)
     {
-        Log.Info($"INSERT SPOOKY OCEAN NOISE HERE");
         _Noisetimer = 0f;
     }
 
@@ -53,14 +52,14 @@ public sealed class WaterInteractionSystem : EntitySystem
 
             if (inGas.InWater)
             {
-                if (TryComp<SolutionComponent>(uid, out var solution))
-                {
+                //if (TryComp<SolutionComponent>(uid, out var solution))
+              //  {
 
-                if (!_prototypeManager.TryIndex<ReagentPrototype>(solution.FloodReagent, out var water))
-                {
-                    Log.Error("No component for the flooding water!");
-                    return;
-                }
+              //  if (!_prototypeManager.TryIndex<ReagentPrototype>(solution.FloodReagent, out var water))
+             //   {
+            //        Log.Error("No component for the flooding water!");
+              //      return;
+             //   }
 
                // if (!_solution.TryGetSolution(uid, solution.Solution, out _, out var actualSolution))
                // {
@@ -75,21 +74,21 @@ public sealed class WaterInteractionSystem : EntitySystem
 
 
                 // INSERT CONSTANT DEEP RUMBLE LOOP EXACTLY ONE SECOND IN LENGTH
-                _audio.PlayPvs(inGas.RumbleSound, uid, AudioParams.Default.WithVolume(9f).WithMaxDistance(0.4f));
-                Log.Info($"Rumbling audio for immersed entity {uid}");
+              //  _audio.PlayPvs(inGas.RumbleSound, uid, AudioParams.Default.WithVolume(9f).WithMaxDistance(0.4f));
+              //  Log.Info($"Rumbling audio for immersed entity {uid}");
 
-                if (!TryComp<WaterBlockerComponent>(uid, out var blocker)) // If not wearing a mask eyes get hurt by water
-                {
+             //   if (!TryComp<WaterBlockerComponent>(uid, out var blocker)) // If not wearing a mask eyes get hurt by water
+             //   {
                     EnsureComp<WaterViewerComponent>(uid);
-                }
-            }
-            else
-            {
+             //   }
+        //    }
+          //  else
+           // {
                 if (!TryComp<JellidComponent>(uid, out var jellid) && !TryComp<SiliconLawProviderComponent>(uid, out var borg)) // If not a Jellid or borg, remove the water viewing resistance
                 {
                     _entityManager.RemoveComponent<WaterViewerComponent>(uid);
                 }
-            }
+         //   }
 
             if (TryComp<FlammableComponent >(uid, out var flame) && inGas.InWater)
             {

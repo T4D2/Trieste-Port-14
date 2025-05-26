@@ -112,6 +112,7 @@ entities:
         - 0
     - type: BellPlatform
     - type: Trieste
+    - type: TriesteAirspace
   - uid: 2
     components:
     - type: MetaData
@@ -119,6 +120,7 @@ entities:
     - type: Transform
       pos: -43.31764,-5.2622185
       parent: 1
+    - type: TradeStation
     - type: MapGrid
       chunks:
         0,0:
@@ -3043,7 +3045,7 @@ entities:
       pos: 11.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -21378.287
+      secondsUntilStateChange: -21443.412
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3206,7 +3208,7 @@ entities:
       pos: 31.5,26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -48669.027
+      secondsUntilStateChange: -48734.152
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3217,7 +3219,7 @@ entities:
       pos: 18.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60494.1
+      secondsUntilStateChange: -60559.227
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3374,7 +3376,7 @@ entities:
       pos: 5.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42330.6
+      secondsUntilStateChange: -42395.727
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3555,7 +3557,7 @@ entities:
       pos: 20.5,6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -37075.836
+      secondsUntilStateChange: -37140.96
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14027,18 +14029,6 @@ entities:
     - type: Transform
       pos: -0.5,28.5
       parent: 2
-- proto: CargoTelepad
-  entities:
-  - uid: 2036
-    components:
-    - type: Transform
-      pos: 0.5,29.5
-      parent: 2
-  - uid: 2037
-    components:
-    - type: Transform
-      pos: 1.5,29.5
-      parent: 2
 - proto: Carpet
   entities:
   - uid: 1999
@@ -19936,12 +19926,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,25.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        2036:
-        - OrderSender: OrderReceiver
-        2037:
-        - OrderSender: OrderReceiver
 - proto: ComputerComms
   entities:
   - uid: 322
@@ -34120,7 +34104,7 @@ entities:
     - type: Transform
       pos: -2.5,-13.5
       parent: 2
-- proto: SMESPlatform
+- proto: SMESAdvanced
   entities:
   - uid: 1708
     components:
@@ -49973,7 +49957,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -17595.17
+      secondsUntilStateChange: -17660.295
       state: Opening
     - type: Airlock
       autoClose: False
@@ -50536,7 +50520,7 @@ entities:
       pos: 32.5,22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42969.402
+      secondsUntilStateChange: -43034.527
       state: Opening
   - uid: 5004
     components:
