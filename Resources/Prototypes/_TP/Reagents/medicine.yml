@@ -240,3 +240,43 @@
         - !type:Temperature
           max: 280
         amount: 200000
+
+- type: reagent
+  id: SeaWaterSolutionBrute
+  name: reagent-name-saltwater-solution-brute
+  group: Medicine
+  desc: reagent-desc-saltwater-solution-brute
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#b05b3c"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -3
+      - !type:Drunk
+        boozePower: .25
+
+- type: reagent
+  id: SeaWaterSolutionBurn
+  name: reagent-name-saltwater-solution-burn
+  group: Medicine
+  desc: reagent-desc-saltwater-solution-burn
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#b05b3c"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -1
+            Cold: -1
+            Shock: -1
+      - !type:Drunk
+        boozePower: .25

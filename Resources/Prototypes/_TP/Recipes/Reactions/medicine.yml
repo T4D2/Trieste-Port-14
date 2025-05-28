@@ -98,3 +98,27 @@
         amount: 1
   products:
       Lexodine: 4
+
+- type: reaction
+  id: SeaWaterSolutionBrute
+  reactants:
+    Sulfur:
+      amount: 1
+    SeaWater:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    SeaWaterSolutionBrute: 3
+
+- type: reaction
+  id: SeaWaterSolutionBurn
+  reactants:
+    Lithium:
+      amount: 1
+    SeaWater:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    SeaWaterSolutionBurn: 3  
