@@ -139,7 +139,6 @@
             Poison: .5
             Cellular: .25
 
-
 - type: reagent
   id: DenaturedProteins
   name: reagent-name-denatured
@@ -148,6 +147,26 @@
   flavor: sour
   color: "#dfe1df"
   recognizable: true
+  physicalDesc: reagent-physical-desc-nondescript
+  slippery: false
+
+- type: reagent
+  id: DormantProtein
+  name: reagent-name-dormant-protein
+  group: Protein
+  desc: reagent-desc-dormant-protein
+  flavor: sour
+  color: "#dfe1df"
+  physicalDesc: reagent-physical-desc-nondescript
+  slippery: false
+
+- type: reagent
+  id: DecayedProtein
+  name: reagent-name-decayed-protein
+  group: Protein
+  desc: reagent-desc-decayed-protein
+  flavor: sour
+  color: "#dfe1df"
   physicalDesc: reagent-physical-desc-nondescript
   slippery: false
 

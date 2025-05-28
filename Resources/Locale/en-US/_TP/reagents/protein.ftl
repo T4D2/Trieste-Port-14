@@ -19,6 +19,9 @@ reagent-desc-denatured = Proteins cooked by high heat. Parts of this are potenti
 reagent-name-dormant-protein = dormant protein
 reagent-desc-dormant-protein = Dormant proteins removed from a denatured mixture
 
+reagent-name-decayed-protein = decayed protein
+reagent-desc-decayed-protein = Useless, centrifuge it for parts
+
 reagent-name-exotic-protein = exotic protein
 reagent-desc-exotic-protein = Activated proteins augmented by exotic extract. can be used for a wide variety of different effects
 
