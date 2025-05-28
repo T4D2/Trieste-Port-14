@@ -1658,7 +1658,7 @@ entities:
     - type: Transform
       pos: 2.5,3.5
       parent: 1
-- proto: SyringeHyperPlatelet
+- proto: SyringeBicaridine
   entities:
   - uid: 120
     components:
