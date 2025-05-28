@@ -31,3 +31,5 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: True }
           False: { visible: False }
+  - type: Machine
+    board: IncubatorMachineCircuitboard
