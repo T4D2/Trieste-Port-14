@@ -5193,7 +5193,7 @@ entities:
     - type: Transform
       pos: -10.5,12.5
       parent: 1
-- proto: SyringeBicaridine
+- proto: SyringeHyperPlatelet
   entities:
   - uid: 840
     components:

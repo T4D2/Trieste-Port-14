@@ -744,7 +744,7 @@
   name: pill
   suffix: Hyper-Platelet 10u
   parent: Pill
-  id: PillBicaridine
+  id: PillHyperPlatelet
   components:
   - type: Pill
     pillType: 4
@@ -763,14 +763,14 @@
 - type: entity
   name: pill canister
   parent: PillCanister
-  id: PillCanisterBicaridine
+  id: PillCanisterHyperPlatelet
   suffix: HyperPlatelet 10u, 5
   components:
   - type: Label
     currentLabel: hyper-platelet 10u
   - type: StorageFill
     contents:
-    - id: PillBicaridine
+    - id: PillHyperPlatelet
       amount: 5
 
 - type: entity
@@ -892,7 +892,7 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillBicaridine
+    - id: PillHyperPlatelet
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
@@ -966,7 +966,7 @@
 - type: entity
   suffix: hyper-platelet
   parent: PrefilledSyringe
-  id: SyringeBicaridine
+  id: SyringeHyperPlatelet
   components:
   - type: Label
     currentLabel: reagent-name-hyper-platelet
@@ -1134,7 +1134,7 @@
   id: RandomSafePillTable
   table: !type:GroupSelector
     children:
-    - id: PillBicaridine
+    - id: PillHyperPlatelet
     - id: PillCharcoal
     - id: PillCopper
     - id: PillDermaline
@@ -1151,7 +1151,7 @@
   id: RandomSafeSyringeTable
   table: !type:GroupSelector
     children:
-    - id: SyringeBicaridine
+    - id: SyringeHyperPlatelet
     - id: SyringeDermaline
     - id: SyringeEphedrine
     - id: SyringeEthylredoxrazine
