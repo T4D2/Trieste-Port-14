@@ -28,6 +28,8 @@
   requiredMixerCategories:
   - Incubation
   reactants:
+      DormantProtein:
+        amount: 1
       Carbon:
         amount: 1
       Oxygen:
@@ -35,7 +37,7 @@
       Nutriment:
         amount: 3
   products:
-      ActivatedProtein: 3
+      ActivatedProtein: 5
 
 - type: reaction
   id: StabilisationProtein
