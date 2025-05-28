@@ -46,6 +46,13 @@
     Medicine:
       metabolismRate: .05
       effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: HyperMarrow
+          min: .25
+        reagent: DestabilizedProtein
+        amount: 0.2
       - !type:HealthChange
         conditions:
         - !type:Temperature
@@ -86,6 +93,13 @@
     Medicine:
       metabolismRate: .05
       effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: HyperPlatelet
+          min: .25
+        reagent: DestabilizedProtein
+        amount: 0.2
       - !type:HealthChange
         conditions:
         - !type:Temperature

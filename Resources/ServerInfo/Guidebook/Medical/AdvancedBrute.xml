@@ -1,5 +1,32 @@
 <Document>
   
-  WIP ):
+So sombody is really hurt? Lets do something about that!
+
+# Temperature Based Treatment
+
+<GuideReagentEmbed Reagent="Lexodine"/>
+<GuideReagentEmbed Reagent="HyperPlatelet"/>
+<GuideReagentEmbed Reagent="HyperMarrow"/>
+
+These three meds heal all of their associated damage, but temperature augments them
+The two hyper ones are protein based, while the Lexodine is a standard med
+
+Lexodine heals burn, cold, and shock.
+
+Cold when the body temp is hot
+Shock when the body temp is average
+and Heat while the body temp is cold
+
+Hyper Marrow also treats burns, but not as quick
+However, it has the same temperature modulation, lasts far longer, and can also treat caustic!
+
+Hyper Platelets function the same, but with Blunt, Pierce, and Slash
+
+Do avoid mixing the two Hyper Proteins, however, as that can desabilise the paitents genome!
+
+If that happens, you might want to use some
+
+<GuideReagentEmbed Reagent="StabilisationProtein"/>
+
   
 </Document>

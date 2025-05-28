@@ -1,5 +1,34 @@
 <Document>
 
-WIP ):
+## Starting Medications
 
+Shift has started and you dont quite know what to do? Use these basic medications untill chem gets some more advanced ones out
+
+<GuideReagentEmbed Reagent="SaltWaterSolutionBrute"/>
+<GuideReagentEmbed Reagent="SaltWaterSolutionBurn"/>
+<GuideReagentEmbed Reagent="Dylovene"/>
+<GuideReagentEmbed Reagent="Inaprovaline"/>
+<GuideReagentEmbed Reagent="Iron"/>
+
+# Specialty Medications
+
+These medications tend to have specific use cases.
+
+<GuideReagentEmbed Reagent="Cryoxadone"/>
+<GuideReagentEmbed Reagent="Epinephrine"/>
+<GuideReagentEmbed Reagent="Hyronalin"/>
+<GuideReagentEmbed Reagent="Arithrazine"/>
+<GuideReagentEmbed Reagent="Phalanximine"/>
+<GuideReagentEmbed Reagent="Tricordrazine"/>
+<GuideReagentEmbed Reagent="TranexamicAcid"/>
+<GuideReagentEmbed Reagent="Ambuzol"/>
+<GuideReagentEmbed Reagent="Oculine"/>
+
+# All Medications
+
+This is a list of -all- medications available, including both standard and protein based medications.
+
+<GuideReagentGroupEmbed Group="Medicine"/>
+<GuideReagentGroupEmbed Group="Protein"/>
+  
 </Document>
