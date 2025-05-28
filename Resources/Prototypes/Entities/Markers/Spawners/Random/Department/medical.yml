@@ -37,11 +37,11 @@
           state: firstaid
     - type: RandomSpawner
       rarePrototypes:
-        - PillCanisterHyperMarrow
+        - PillCanisterDermaline
         - PillCanisterDylovene
-        - PillCanisterHyperPlatelet
-        - PillCanisterLexodine
-        - PillCanisterOxygenated
+        - PillCanisterBicaridine
+        - PillCanisterKelotane
+        - PillCanisterDexalin
         - HandheldHealthAnalyzer
         - ClothingHandsGlovesLatex
       rareChance: 0.1

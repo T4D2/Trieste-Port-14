@@ -302,7 +302,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: ActivatedProtein
+        - ReagentId: Bicaridine
           Quantity: 20
   - type: StaticPrice
     price: 750

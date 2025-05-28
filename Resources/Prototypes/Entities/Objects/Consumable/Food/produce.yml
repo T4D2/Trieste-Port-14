@@ -1544,7 +1544,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: HyperPlatelet
+        - ReagentId: Bicaridine
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/poppy.rsi
@@ -1641,7 +1641,7 @@
         reagents:
         - ReagentId: Bicaridine
           Quantity: 5
-        - ReagentId: Lexodine
+        - ReagentId: Kelotane
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 2

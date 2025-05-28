@@ -380,7 +380,7 @@
         - ReagentSlimePax
         - ReagentSlimeNocturine
         - ReagentSlimeTHC
-        - ReagentSlimePlatelet
+        - ReagentSlimeBicaridine
         - ReagentSlimeToxin
         - ReagentSlimeNapalm
         - ReagentSlimeOmnizine
@@ -465,12 +465,12 @@
         color: "#808080"
 
 - type: entity
-  id: ReagentSlimePlatelet
+  id: ReagentSlimeBicaridine
   parent: ReagentSlime
-  suffix: Hyper-Platelet
+  suffix: Bicaridine
   components:
   - type: Bloodstream
-    bloodReagent: HyperPlatelet
+    bloodReagent: Bicaridine
   - type: PointLight
     color: "#ffaa00"
   - type: Sprite

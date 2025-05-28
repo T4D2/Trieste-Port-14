@@ -57,7 +57,7 @@
   reactants:
     ExoticOil:
       amount: 1
-    HyperPlatelet:
+    Bicaridine:
       amount: 1
   products:
     Omnizine: 1
