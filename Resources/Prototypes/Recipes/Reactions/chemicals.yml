@@ -66,9 +66,7 @@
 - type: reaction
   id: Acetone
   reactants:
-    Oil:
-      amount: 1
-    WeldingFuel:
+    Petroleum:
       amount: 1
     Oxygen:
       amount: 1
