@@ -156,7 +156,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dermaline
+          - ReagentId: HyperMarrow
             Quantity: 10
 
 - type: entity
@@ -201,7 +201,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Bicaridine
+          - ReagentId: HyperPlatelets
             Quantity: 10
 
 - type: entity
@@ -216,7 +216,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dexalin
+          - ReagentId: OxygenatedSaline
             Quantity: 10
 
 - type: entity

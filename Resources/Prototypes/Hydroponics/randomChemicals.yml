@@ -60,8 +60,8 @@
   - quantity: 10
     weight: 3
     reagents:
-    - Bicaridine
-    - Dermaline
+    #- Bicaridine
+    #- Dermaline
     - Ephedrine
     - NorepinephricAcid
     - Tricordrazine
@@ -95,7 +95,7 @@
     weight: 3.5
     reagents:
     - Vitamin
-    - Kelotane
+    #- Kelotane
     - Inaprovaline
     - Oil
     - Slime

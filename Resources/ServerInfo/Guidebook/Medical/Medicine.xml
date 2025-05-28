@@ -4,13 +4,12 @@
 
 These medications are almost always useful to medbay in one way or another.
 
-<GuideReagentEmbed Reagent="Bicaridine"/>
-<GuideReagentEmbed Reagent="Kelotane"/>
-<GuideReagentEmbed Reagent="Dermaline"/>
+<GuideReagentEmbed Reagent="HyperPlatelet"/>
+<GuideReagentEmbed Reagent="HyperMarrow"/>
+<GuideReagentEmbed Reagent="Lexodine"/>
 <GuideReagentEmbed Reagent="Dylovene"/>
 <GuideReagentEmbed Reagent="Inaprovaline"/>
-<GuideReagentEmbed Reagent="Dexalin"/>
-<GuideReagentEmbed Reagent="DexalinPlus"/>
+<GuideReagentEmbed Reagent="OxygenatedSaline"/>
 <GuideReagentEmbed Reagent="Iron"/>
 
 # Specialty Medications
