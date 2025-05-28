@@ -134,3 +134,13 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: SheetPlastic1
+
+- type: reaction
+  id: Acetone
+  reactants:
+    Petrolium:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Acetone: 2
