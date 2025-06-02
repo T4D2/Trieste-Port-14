@@ -1,5 +1,5 @@
 reagent-name-activated-protein = activated protein
-reagent-desc-activated-protein = Re-activated proteins. have a natural healing effect, but you should really specialise them for it to be useful
+reagent-desc-activated-protein = Re-activated proteins. Has a natural healing effect, but you should really specialise them for it to be useful
 
 reagent-name-stabilisation-protein = stabilisation protein
 reagent-desc-stabilisation-protein = A protein mix designed to stabilise cellular abnormalities
