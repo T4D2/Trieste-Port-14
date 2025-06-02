@@ -138,7 +138,7 @@
 - type: reaction
   id: Acetone
   reactants:
-    Petrolium:
+    Petroleum:
       amount: 1
     Oxygen:
       amount: 1

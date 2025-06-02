@@ -208,9 +208,9 @@
           min: 305
         damage:
           types:
-            Cold: -10
-            Heat: -1
-            Shock: -1
+            Cold: -1
+            Heat: -10
+            Shock: -2
       - !type:HealthChange
         conditions:
         - !type:Temperature

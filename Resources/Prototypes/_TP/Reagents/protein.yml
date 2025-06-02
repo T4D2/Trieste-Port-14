@@ -20,7 +20,7 @@
             Radiation: -.1
             
 - type: reagent
-  id: StabilisationProtein
+  id: StabilizationProtein
   name: reagent-name-stabilisation-protein
   desc: reagent-desc-stabilisation-protein
   group: Protein
