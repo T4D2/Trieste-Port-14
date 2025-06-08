@@ -1,22 +1,13 @@
-using Content.Server.Falling;
-using Content.Server.Popups;
+using Content.Server._TP.Falling.Components;
 using Content.Server.Roles;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
-using Content.Shared.Paper;
-using Content.Shared.Timing;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._TP;
 
 public sealed class PilotAssignmentSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()

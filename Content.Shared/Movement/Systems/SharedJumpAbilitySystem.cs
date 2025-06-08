@@ -23,7 +23,7 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
     public override void Update(float frameTime)
     {
 
-        foreach (var entity in EntityQuery<JumpingComponent>())
+        foreach (var entity in EntityQuery<Components.JumpingComponent>())
         {
 
           if (!entity.IsJumping)
@@ -42,7 +42,7 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
         if (_gravity.IsWeightless(args.Performer))
             return;
 
-        EnsureComp<JumpingComponent>(args.Performer, out var jump);
+        EnsureComp<Components.JumpingComponent>(args.Performer, out var jump);
         jump.IsJumping = true;
         jump.LastJumped = _timing.CurTime;
         var xform = Transform(args.Performer);

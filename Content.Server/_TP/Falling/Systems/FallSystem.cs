@@ -1,31 +1,21 @@
 using System.Linq;
-using Content.Shared.Ghost;
-using Content.Server.Falling;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Stunnable;
-using Content.Shared.Damage.Components;
-using Robust.Shared.Map;
-using Robust.Shared.Timing;
 using Content.Server.Popups;
-using Content.Shared._TP;
-using Content.Shared.Popups;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Robust.Shared.GameObjects;
+using Content.Shared.Damage;
+using Content.Shared.Ghost;
 using Content.Shared.Gravity;
-using Robust.Server.GameObjects;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Movement.Components;
+using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Stunnable;
+using Robust.Shared.Random;
 
-namespace Content.Server.Falling
+namespace Content.Server._TP.Falling.Systems
 {
     public sealed class FallSystem : EntitySystem
     {
         [Dependency] private readonly SharedStunSystem _stun = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -36,27 +26,29 @@ namespace Content.Server.Falling
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<FallSystemComponent, EntParentChangedMessage>(OnEntParentChanged);
+            SubscribeLocalEvent<Components.FallSystemComponent, EntParentChangedMessage>(OnEntParentChanged);
         }
 
         public override void Update(float frameTime)
         {
-
             foreach (var entity in EntityQuery<JumpingComponent>())
             {
-                var EntityParent = Transform(entity.Owner).ParentUid;
+                var entityParent = Transform(entity.Owner).ParentUid;
 
-                if (HasComp<TriesteAirspaceComponent>(EntityParent) && !entity.IsJumping)
+                // Check if the entity just finished jumping (was jumping but now isn't)
+                if (HasComp<TriesteAirspaceComponent>(entityParent) &&
+                    entity is { IsJumping: false, WasJumping: true })
                 {
-                    if (TryComp<FallSystemComponent>(entity.Owner, out var fallSystemComponent))
-                    {
+                    if (TryComp<Components.FallSystemComponent>(entity.Owner, out var fallSystemComponent))
                         HandleFall(entity.Owner, fallSystemComponent);
-                    }
                 }
+
+                // Update previous state for next frame
+                entity.WasJumping = entity.IsJumping;
             }
         }
 
-        private void OnEntParentChanged(EntityUid owner, FallSystemComponent component, EntParentChangedMessage args) // called when the entity changes parents
+        private void OnEntParentChanged(EntityUid owner, Components.FallSystemComponent component, EntParentChangedMessage args) // called when the entity changes parents
         {
             if (args.OldParent == null || args.Transform.GridUid != null ||
                 TerminatingOrDeleted(
@@ -85,13 +77,13 @@ namespace Content.Server.Falling
                 return;
             }
 
-            if (HasComp<JumpingComponent>(owner))
+            if (HasComp<Shared.Movement.Components.JumpingComponent>(owner))
             {
                 return;
             }
 
-            var OwnerParent = Transform(owner).ParentUid;
-            if (!HasComp<TriesteAirspaceComponent>(OwnerParent))
+            var ownerParent = Transform(owner).ParentUid;
+            if (!HasComp<TriesteAirspaceComponent>(ownerParent))
             {
                 return;
             }
@@ -99,9 +91,9 @@ namespace Content.Server.Falling
             HandleFall(owner, component);
         }
 
-        private void HandleFall(EntityUid owner, FallSystemComponent component)
+        private void HandleFall(EntityUid owner, Components.FallSystemComponent component)
         {
-            var destination = EntityManager.EntityQuery<FallingDestinationComponent>().FirstOrDefault();
+            var destination = EntityManager.EntityQuery<Components.FallingDestinationComponent>().FirstOrDefault();
             if (destination != null)
             {
                 // Teleport to the first destination's coordinates
@@ -133,7 +125,7 @@ namespace Content.Server.Falling
             TeleportRandomly(owner, component);
         }
 
-        private void TeleportRandomly(EntityUid owner, FallSystemComponent component)
+        private void TeleportRandomly(EntityUid owner, Components.FallSystemComponent component)
         {
             var coords = Transform(owner).Coordinates;
             var newCoords = coords; // Start with the current coordinates
@@ -152,7 +144,7 @@ namespace Content.Server.Falling
             }
 
             // Set the new coordinates to teleport the entity
-            Transform(owner).Coordinates = newCoords;
+            _transformSystem.SetCoordinates(owner, newCoords);
         }
     }
 }

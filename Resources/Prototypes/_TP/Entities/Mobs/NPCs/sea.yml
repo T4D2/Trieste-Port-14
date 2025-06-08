@@ -201,6 +201,26 @@
       behaviors:
       - !type:GibBehavior { }
   - type: NonSpreaderZombie
+  - type: Respirator
+    damage: { }
+    damageRecovery: { }
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 0
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5  # Slower than the original, this is to make the fish seem less "eager" as it follows players
+    baseSprintSpeed: 2.5
 
 - type: entity
   name: Mimic
