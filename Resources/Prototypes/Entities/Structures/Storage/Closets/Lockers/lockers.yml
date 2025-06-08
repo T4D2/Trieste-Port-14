@@ -302,7 +302,7 @@
 - type: entity
   id: LockerHeadOfSecurity
   parent: LockerBaseSecure
-  name: head of security's locker
+  name: marshal's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals

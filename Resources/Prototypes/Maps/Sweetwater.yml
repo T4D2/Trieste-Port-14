@@ -1,7 +1,7 @@
 - type: gameMap
   id: Terminal
   mapName: Sweetwater
-  mapPath: /Maps/Misc/terminal.yml
+  mapPath: /Maps/Sweetwater.yml
   minPlayers: 0
   stations:
     Terminal:

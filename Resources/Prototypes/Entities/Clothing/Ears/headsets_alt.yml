@@ -92,7 +92,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband]
   id: ClothingHeadsetAltSecurity
-  name: head of security's over-ear headset
+  name: marshal's over-ear headset # TP
   components:
   - type: ContainerFill
     containers:

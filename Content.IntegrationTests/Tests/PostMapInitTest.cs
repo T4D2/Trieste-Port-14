@@ -35,13 +35,13 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
-            "Dart"
+            "Dart",
         };
 
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            AdminTestArenaSystem.ArenaMapPath
+            AdminTestArenaSystem.ArenaMapPath,
         };
 
         private static readonly string[] DoNotMapWhitelist =
@@ -57,6 +57,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
             "/Maps/triesteLEGACY.yml", // Legacy map
             "/Maps/triesteOld.yml", // Legacy map
+            "/Maps/Misc/terminal.yml", // Replaced with "sweetwater"
             "/Maps/Misc/terminalOLD.yml", // Legacy map
             "/Maps/Misc/terminalOLDER.yml" // Legacy map
         };
@@ -87,9 +88,9 @@ namespace Content.IntegrationTests.Tests
             "Convex",
             "Relic",
             "dm01-entryway",
-            "trieste",
-            "Misc/terminal",
-            "Misc/ocean"
+            "trieste", // TP
+            "sweetwater", // TP
+            "Misc/ocean", // TP
         };
 
         /// <summary>
