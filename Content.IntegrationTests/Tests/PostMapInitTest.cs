@@ -57,7 +57,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
             "/Maps/triesteLEGACY.yml", // Legacy map
             "/Maps/triesteOld.yml", // Legacy map
-            "/Maps/Misc/terminal.yml", // Replaced with "sweetwater"
             "/Maps/Misc/terminalOLD.yml", // Legacy map
             "/Maps/Misc/terminalOLDER.yml" // Legacy map
         };
@@ -89,7 +88,7 @@ namespace Content.IntegrationTests.Tests
             "Relic",
             "dm01-entryway",
             "trieste", // TP
-            "sweetwater", // TP
+            "Misc/terminal", // TP
             "Misc/ocean", // TP
         };
 

@@ -100,7 +100,7 @@ public sealed partial class TraitorRuleComponent : Component
     public int CodewordCount = 4;
 
     /// <summary>
-    /// The amount of TC traitors start with.
+    /// The number of TC that traitors start with.
     /// </summary>
     [DataField]
     public FixedPoint2 StartingBalance = 20;

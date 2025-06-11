@@ -124,7 +124,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretQM
-  name: quartermaster's beret
+  name: harbormaster's beret
   description: A beret with the cargo's insignia emblazoned on it. For quartermasters that are more inclined towards style.
   components:
   - type: Sprite

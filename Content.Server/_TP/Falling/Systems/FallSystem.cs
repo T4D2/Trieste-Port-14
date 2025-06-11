@@ -6,9 +6,11 @@ using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
+using Content.Shared.Salvage.Fulton;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._TP.Falling.Systems
 {
@@ -19,6 +21,7 @@ namespace Content.Server._TP.Falling.Systems
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
         private const int MaxRandomTeleportAttempts = 20; // The # of times it's going to try to find a valid spot to randomly teleport an object
@@ -31,28 +34,52 @@ namespace Content.Server._TP.Falling.Systems
 
         public override void Update(float frameTime)
         {
-            foreach (var entity in EntityQuery<JumpingComponent>())
+            // First we start with an entity enumerator for the JumpingComponent (aka players)
+            // If it passes, start a while loop and get the UID/component.
+            // If the player is on a grid, run 'continue' to skip falling.
+            var jumpingQuery = EntityQueryEnumerator<JumpingComponent>();
+            while (jumpingQuery.MoveNext(out var uid, out var jumpComp))
             {
-                var entityParent = Transform(entity.Owner).ParentUid;
-
-                // Check if the entity just finished jumping (was jumping but now isn't)
-                if (HasComp<TriesteAirspaceComponent>(entityParent) &&
-                    entity is { IsJumping: false, WasJumping: true })
+                var transform = _transformSystem.GetGrid(uid);
+                if (transform != null)
                 {
-                    if (TryComp<Components.FallSystemComponent>(entity.Owner, out var fallSystemComponent))
-                        HandleFall(entity.Owner, fallSystemComponent);
+                    continue;
                 }
 
-                // Update previous state for next frame
-                entity.WasJumping = entity.IsJumping;
+                // Now check if the entity WAS jumping.
+                // If it was, and it's not jumping anymore, it will fall.
+                // At the end we set wasJumping to IsJumping.
+                var entityParent = _transformSystem.GetParentUid(uid);
+                if (HasComp<TriesteAirspaceComponent>(entityParent) &&
+                    jumpComp is { IsJumping: false, WasJumping: true })
+                {
+                    if (TryComp<Components.FallSystemComponent>(uid, out var fallSystemComponent))
+                        HandleFall(uid, fallSystemComponent);
+                }
+
+                jumpComp.WasJumping = jumpComp.IsJumping;
             }
         }
 
         private void OnEntParentChanged(EntityUid owner, Components.FallSystemComponent component, EntParentChangedMessage args) // called when the entity changes parents
         {
+            // A check that should fix the round-start crash/restart. - Cookie (FatherCheese)
+            // If the entity is not initialized, or we're below 10 seconds, return.
+            if (MetaData(owner).EntityLifeStage < EntityLifeStage.MapInitialized)
+            {
+                return;
+            }
+
+            // A check to see if the player jumped from one grid to
+            // another, and if so, return, so they don't fall.
             if (args.OldParent == null || args.Transform.GridUid != null ||
                 TerminatingOrDeleted(
-                    owner)) // If you came from space or are switching to another valid grid, nothing happens.
+                    owner))
+            {
+                return;
+            }
+
+            if (HasComp<FultonedComponent>(owner))
             {
                 return;
             }
@@ -77,7 +104,12 @@ namespace Content.Server._TP.Falling.Systems
                 return;
             }
 
-            if (HasComp<Shared.Movement.Components.JumpingComponent>(owner))
+            if (HasComp<JumpingComponent>(owner))
+            {
+                return;
+            }
+
+            if (HasComp<FultonComponent>(owner))
             {
                 return;
             }

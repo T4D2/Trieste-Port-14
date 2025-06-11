@@ -815,7 +815,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCapFormal
-  name: captain's formal suit
+  name: overseer's formal suit
   description: A suit for special occasions.
   components:
   - type: Sprite
@@ -837,7 +837,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHosFormal
-  name: hos's formal suit
+  name: marshal's formal suit
   description: A suit for special occasions.
   components:
   - type: Sprite
