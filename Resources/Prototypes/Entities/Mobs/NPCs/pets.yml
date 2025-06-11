@@ -540,7 +540,7 @@
   name: Renault
   parent: MobFox
   id: MobFoxRenault
-  description: The captain's trustworthy fox.
+  description: The overseer's trustworthy fox.
   components:
   - type: InteractionPopup
     successChance: 1

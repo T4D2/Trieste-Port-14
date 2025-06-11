@@ -35,13 +35,13 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
-            "Dart"
+            "Dart",
         };
 
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            AdminTestArenaSystem.ArenaMapPath
+            AdminTestArenaSystem.ArenaMapPath,
         };
 
         private static readonly string[] DoNotMapWhitelist =
@@ -87,9 +87,9 @@ namespace Content.IntegrationTests.Tests
             "Convex",
             "Relic",
             "dm01-entryway",
-            "trieste",
-            "Misc/terminal",
-            "Misc/ocean"
+            "trieste", // TP
+            "Misc/terminal", // TP
+            "Misc/ocean", // TP
         };
 
         /// <summary>

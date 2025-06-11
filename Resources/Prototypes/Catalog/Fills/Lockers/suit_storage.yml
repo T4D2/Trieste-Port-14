@@ -202,7 +202,7 @@
 - type: entity
   id: SuitStorageCaptain
   parent: SuitStorageBase
-  suffix: Captain
+  suffix: Overseer
   components:
   - type: EntityTableContainerFill
     containers:

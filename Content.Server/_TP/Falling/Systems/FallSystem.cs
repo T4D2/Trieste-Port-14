@@ -1,34 +1,27 @@
 using System.Linq;
-using Content.Shared.Ghost;
-using Content.Server.Falling;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Stunnable;
-using Content.Shared.Damage.Components;
-using Robust.Shared.Map;
-using Robust.Shared.Timing;
 using Content.Server.Popups;
-using Content.Shared._TP;
-using Content.Shared.Popups;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Robust.Shared.GameObjects;
+using Content.Shared.Damage;
+using Content.Shared.Ghost;
 using Content.Shared.Gravity;
-using Robust.Server.GameObjects;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Movement.Components;
+using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
+using Content.Shared.Salvage.Fulton;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Stunnable;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
-namespace Content.Server.Falling
+namespace Content.Server._TP.Falling.Systems
 {
     public sealed class FallSystem : EntitySystem
     {
         [Dependency] private readonly SharedStunSystem _stun = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
         private const int MaxRandomTeleportAttempts = 20; // The # of times it's going to try to find a valid spot to randomly teleport an object
@@ -36,31 +29,57 @@ namespace Content.Server.Falling
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<FallSystemComponent, EntParentChangedMessage>(OnEntParentChanged);
+            SubscribeLocalEvent<Components.FallSystemComponent, EntParentChangedMessage>(OnEntParentChanged);
         }
 
         public override void Update(float frameTime)
         {
-
-            foreach (var entity in EntityQuery<JumpingComponent>())
+            // First we start with an entity enumerator for the JumpingComponent (aka players)
+            // If it passes, start a while loop and get the UID/component.
+            // If the player is on a grid, run 'continue' to skip falling.
+            var jumpingQuery = EntityQueryEnumerator<JumpingComponent>();
+            while (jumpingQuery.MoveNext(out var uid, out var jumpComp))
             {
-                var EntityParent = Transform(entity.Owner).ParentUid;
-
-                if (HasComp<TriesteAirspaceComponent>(EntityParent) && !entity.IsJumping)
+                var transform = _transformSystem.GetGrid(uid);
+                if (transform != null)
                 {
-                    if (TryComp<FallSystemComponent>(entity.Owner, out var fallSystemComponent))
-                    {
-                        HandleFall(entity.Owner, fallSystemComponent);
-                    }
+                    continue;
                 }
+
+                // Now check if the entity WAS jumping.
+                // If it was, and it's not jumping anymore, it will fall.
+                // At the end we set wasJumping to IsJumping.
+                var entityParent = _transformSystem.GetParentUid(uid);
+                if (HasComp<TriesteAirspaceComponent>(entityParent) &&
+                    jumpComp is { IsJumping: false, WasJumping: true })
+                {
+                    if (TryComp<Components.FallSystemComponent>(uid, out var fallSystemComponent))
+                        HandleFall(uid, fallSystemComponent);
+                }
+
+                jumpComp.WasJumping = jumpComp.IsJumping;
             }
         }
 
-        private void OnEntParentChanged(EntityUid owner, FallSystemComponent component, EntParentChangedMessage args) // called when the entity changes parents
+        private void OnEntParentChanged(EntityUid owner, Components.FallSystemComponent component, EntParentChangedMessage args) // called when the entity changes parents
         {
+            // A check that should fix the round-start crash/restart. - Cookie (FatherCheese)
+            // If the entity is not initialized, or we're below 10 seconds, return.
+            if (MetaData(owner).EntityLifeStage < EntityLifeStage.MapInitialized)
+            {
+                return;
+            }
+
+            // A check to see if the player jumped from one grid to
+            // another, and if so, return, so they don't fall.
             if (args.OldParent == null || args.Transform.GridUid != null ||
                 TerminatingOrDeleted(
-                    owner)) // If you came from space or are switching to another valid grid, nothing happens.
+                    owner))
+            {
+                return;
+            }
+
+            if (HasComp<FultonedComponent>(owner))
             {
                 return;
             }
@@ -90,8 +109,13 @@ namespace Content.Server.Falling
                 return;
             }
 
-            var OwnerParent = Transform(owner).ParentUid;
-            if (!HasComp<TriesteAirspaceComponent>(OwnerParent))
+            if (HasComp<FultonComponent>(owner))
+            {
+                return;
+            }
+
+            var ownerParent = Transform(owner).ParentUid;
+            if (!HasComp<TriesteAirspaceComponent>(ownerParent))
             {
                 return;
             }
@@ -99,9 +123,9 @@ namespace Content.Server.Falling
             HandleFall(owner, component);
         }
 
-        private void HandleFall(EntityUid owner, FallSystemComponent component)
+        private void HandleFall(EntityUid owner, Components.FallSystemComponent component)
         {
-            var destination = EntityManager.EntityQuery<FallingDestinationComponent>().FirstOrDefault();
+            var destination = EntityManager.EntityQuery<Components.FallingDestinationComponent>().FirstOrDefault();
             if (destination != null)
             {
                 // Teleport to the first destination's coordinates
@@ -133,7 +157,7 @@ namespace Content.Server.Falling
             TeleportRandomly(owner, component);
         }
 
-        private void TeleportRandomly(EntityUid owner, FallSystemComponent component)
+        private void TeleportRandomly(EntityUid owner, Components.FallSystemComponent component)
         {
             var coords = Transform(owner).Coordinates;
             var newCoords = coords; // Start with the current coordinates
@@ -152,7 +176,7 @@ namespace Content.Server.Falling
             }
 
             // Set the new coordinates to teleport the entity
-            Transform(owner).Coordinates = newCoords;
+            _transformSystem.SetCoordinates(owner, newCoords);
         }
     }
 }
