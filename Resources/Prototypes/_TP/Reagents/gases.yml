@@ -57,10 +57,3 @@
         ratios:
           WaterVapor: 1.0
           Water: -1.0
-  plantMetabolism:
-  - !type:PlantAdjustWater
-    amount: 1
-  - !type:PlantAdjustToxins
-    amount: 20
-  - !type:PlantAdjustHealth
-    amount: -1.5
