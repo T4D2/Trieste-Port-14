@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Popups;
+using Content.Shared.Climbing.Components;
+using Content.Shared.Climbing.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Ghost;
 using Content.Shared.Gravity;
@@ -23,6 +25,7 @@ namespace Content.Server._TP.Falling.Systems
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly ClimbSystem _climb = default!;
 
         private const int MaxRandomTeleportAttempts = 20; // The # of times it's going to try to find a valid spot to randomly teleport an object
 
@@ -59,7 +62,38 @@ namespace Content.Server._TP.Falling.Systems
 
                 jumpComp.WasJumping = jumpComp.IsJumping;
             }
+
+            // This part catches if the player has climbed over the railing
+            // and will force them to stop (and fall)!
+            var fallQuery = EntityQueryEnumerator<Components.FallSystemComponent>();
+            while (fallQuery.MoveNext(out var uid, out var fallComp))
+            {
+                // Skip if already handled by jumping logic above
+                if (HasComp<JumpingComponent>(uid))
+                    continue;
+
+                var transform = _transformSystem.GetGrid(uid);
+                if (transform != null)
+                {
+                    continue; // Still on a grid, don't fall
+                }
+
+                var entityParent = _transformSystem.GetParentUid(uid);
+                if (HasComp<TriesteAirspaceComponent>(entityParent))
+                {
+                    // Check if they should be exempt from falling
+                    if (ExemptFromFalling(uid))
+                        continue;
+
+                    // Force stop climbing if they're in airspace
+                    if (TryComp<ClimbingComponent>(uid, out var climbComp) && climbComp.IsClimbing)
+                        _climb.StopClimb(uid, climbComp);
+
+                    HandleFall(uid, fallComp);
+                }
+            }
         }
+
 
         private void OnEntParentChanged(EntityUid owner, Components.FallSystemComponent component, EntParentChangedMessage args) // called when the entity changes parents
         {
@@ -79,40 +113,8 @@ namespace Content.Server._TP.Falling.Systems
                 return;
             }
 
-            if (HasComp<FultonedComponent>(owner))
-            {
+            if (ExemptFromFalling(owner))
                 return;
-            }
-
-            if (HasComp<GhostComponent>(owner))
-            {
-                return;
-            }
-
-            if (HasComp<NoFTLComponent>(owner))
-            {
-                return;
-            }
-
-            if (HasComp<CanMoveInAirComponent>(owner))
-            {
-                return;
-            }
-
-            if (HasComp<RevenantComponent>(owner))
-            {
-                return;
-            }
-
-            if (HasComp<JumpingComponent>(owner))
-            {
-                return;
-            }
-
-            if (HasComp<FultonComponent>(owner))
-            {
-                return;
-            }
 
             var ownerParent = Transform(owner).ParentUid;
             if (!HasComp<TriesteAirspaceComponent>(ownerParent))
@@ -120,7 +122,58 @@ namespace Content.Server._TP.Falling.Systems
                 return;
             }
 
+            // Force stop climbing when entering airspace via parent change
+            if (TryComp<ClimbingComponent>(owner, out var climbComp) && climbComp.IsClimbing)
+            {
+                _climb.StopClimb(owner, climbComp);
+            }
+
             HandleFall(owner, component);
+        }
+
+        /// <summary>
+        ///     A method of different components that are exempt from falling.
+        /// </summary>
+        /// <param name="owner">Entity UID</param>
+        /// <returns>Returns true if the comp exists, otherwise returns false</returns>
+        private bool ExemptFromFalling(EntityUid owner)
+        {
+            if (HasComp<FultonedComponent>(owner))
+            {
+                return true;
+            }
+
+            if (HasComp<GhostComponent>(owner))
+            {
+                return true;
+            }
+
+            if (HasComp<NoFTLComponent>(owner))
+            {
+                return true;
+            }
+
+            if (HasComp<CanMoveInAirComponent>(owner))
+            {
+                return true;
+            }
+
+            if (HasComp<RevenantComponent>(owner))
+            {
+                return true;
+            }
+
+            if (HasComp<JumpingComponent>(owner))
+            {
+                return true;
+            }
+
+            if (HasComp<FultonComponent>(owner))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void HandleFall(EntityUid owner, Components.FallSystemComponent component)

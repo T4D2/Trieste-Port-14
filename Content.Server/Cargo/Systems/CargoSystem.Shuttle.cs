@@ -6,10 +6,12 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
-using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Salvage.Fulton;
+using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -147,23 +149,41 @@ public sealed partial class CargoSystem
         foreach (var ent in toSell)
         {
 
-            // TRIESTE EDIT!!
-            // This'll allow items being sold to "launch" into the air, waiting be intercepted by trade vessels or whatnot
-
+            // TRIESTE EDITS!!
+            // This will allow items being sold to "launch" into the air,
+            // waiting to be intercepted by trade vessels or whatnot
             var metadata = MetaData(ent);
             var curTime = _timing.CurTime;
             var fulton = EnsureComp<FultonedComponent>(ent);
             fulton.Beacon = gridUid;
-            fulton.FultonDuration = TimeSpan.FromMinutes(9999999); // 19 years (should be a negligible amount of lag since they get abstracted)
-            fulton.NextFulton = _timing.CurTime; // Should be relatively immediate
+            fulton.FultonDuration = TimeSpan.FromSeconds(5);
+            fulton.NextFulton = _timing.CurTime;
             fulton.Removeable = false;
 
-            // TRIESTE EDIT!!!
+            // A timer to delete the fulton component after 5 seconds.
+            Timer.Spawn(TimeSpan.FromSeconds(5),
+                () =>
+            {
+                if (EntityManager.EntityExists(ent))
+                {
+                    // Delete all contained entities first
+                    if (!TryComp<ContainerManagerComponent>(ent, out var containerManager))
+                        return;
 
-           if (fulton.NextFulton < curTime)
-           {
-              Del(ent);
-           }
+                    foreach (var container in containerManager.Containers.Values)
+                    {
+                        // Create a copy of the list since we're modifying it
+                        var containedEntities = container.ContainedEntities.ToList();
+                        foreach (var containedEnt in containedEntities)
+                        {
+                            if (EntityManager.EntityExists(containedEnt))
+                                Del(containedEnt);
+                        }
+                    }
+                }
+
+                Del(ent);
+            });
         }
 
         return true;
@@ -186,10 +206,10 @@ public sealed partial class CargoSystem
 
             foreach (var ent in _setEnts)
             {
-                // Dont sell:
+                // Don't sell:
                 // - anything already being sold
-                // - anything anchored (e.g. light fixtures)
-                // - anything blacklisted (e.g. players).
+                // - anything anchored (e.g., light fixtures)
+                // - anything blacklisted (e.g., players).
                 if (toSell.Contains(ent) ||
                     _xformQuery.TryGetComponent(ent, out var xform) &&
                     (xform.Anchored || !CanSell(ent, xform)))
