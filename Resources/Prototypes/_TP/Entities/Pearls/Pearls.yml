@@ -1,3 +1,6 @@
+# Pearls can be read by anything with the PearlScanner and PearlReader tag
+# Pearls can be edited by anything with the PearlEditor tag
+
 - type: entity
   name: pearl
   parent: BaseItem
