@@ -9,7 +9,7 @@
     state: icon
   - type: TriggerOnSpawn
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 3
   - type: LightBehaviour
     behaviours:
     - !type:FadeBehaviour
@@ -26,13 +26,13 @@
       minValue: 0.1
       maxValue: 2.0
       isLooped: true
-    - type: PointLight
-      enabled: true
-      radius: 20.5
-      softness: 4
-    - type: AmbientSound
-      enabled: true
-      volume: -5
-      range: 14
-      sound:
-        path: /Audio/Effects/tesla_collapse.ogg
+  - type: PointLight
+    enabled: true
+    radius: 20.5
+    softness: 4
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 14
+    sound:
+      path: /Audio/Effects/tesla_collapse.ogg
