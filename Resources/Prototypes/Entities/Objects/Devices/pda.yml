@@ -172,7 +172,7 @@
 - type: entity
   parent: BasePDA
   id: PassengerPDA
-  name: passenger PDA
+  name: civilian PDA # TP
   description: Why isn't it gray?
   components:
   - type: Pda
@@ -456,7 +456,7 @@
     - DoorBumpOpener
 
 - type: entity
-  name: harbormaster PDA
+  name: harbormaster PDA # TP
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
@@ -495,7 +495,7 @@
 - type: entity
   parent: BasePDA
   id: SalvagePDA
-  name: salvage PDA
+  name: expeditioneer PDA # TP
   description: Smells like ash.
   components:
   - type: Pda
@@ -518,36 +518,6 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
-
-- type: entity
-  parent: BasePDA
-  id: PilotPDA
-  name: pilot PDA
-  description: Protocol III, protect the PDA.
-  components:
-  - type: Pda
-    id: PilotIDCard
-    state: pda-miner
-  - type: PdaBorderColor
-    borderColor: "#af9366"
-    accentVColor: "#8900c9"
-  - type: Icon
-    state: pda-miner
-
-- type: entity
-  parent: BasePDA
-  id: BasinTechPDA
-  name: basin technician PDA
-  description: It's completely waterlogged.
-  components:
-  - type: Pda
-    id: BasinTechIDCard
-    state: pda-miner
-  - type: PdaBorderColor
-    borderColor: "#af9366"
-    accentVColor: "#8900c9"
-  - type: Icon
-    state: pda-miner
 
 - type: entity
   parent: BasePDA
@@ -658,7 +628,7 @@
 - type: entity
   parent: BasePDA
   id: CaptainPDA
-  name: overseer PDA
+  name: overseer PDA # TP
   description: Surprisingly no different from your PDA.
   components:
   - type: Pda
@@ -726,7 +696,7 @@
 - type: entity
   parent: BasePDA
   id: EngineerPDA
-  name: engineer PDA
+  name: platform engineer PDA # TP
   description: Rugged and well-worn.
   components:
   - type: Pda
@@ -875,7 +845,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: HoSPDA
-  name: head of security PDA
+  name: marshal PDA # TP
   description: Whosoever bears this PDA is the law.
   components:
   - type: Pda
@@ -988,6 +958,8 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
+  - type: Contraband # TP
+    severity: Nanotrasen
 
 - type: entity
   parent: CentcomPDA

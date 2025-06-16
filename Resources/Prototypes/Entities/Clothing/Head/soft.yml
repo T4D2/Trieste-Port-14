@@ -88,8 +88,8 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatQMsoft
-  name: quartermaster's cap
-  description: "It's a baseball hat painted in the Quartermaster's colors."
+  name: harbormaster's cap
+  description: "It's a baseball hat painted in the Harbormaster's colors."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft.rsi
@@ -99,7 +99,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatQMsoft]
   id: ClothingHeadHatQMsoftFlipped
-  name: quartermaster's cap
+  name: harbormaster's cap
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable

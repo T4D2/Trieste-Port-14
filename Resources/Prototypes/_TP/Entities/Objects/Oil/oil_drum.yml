@@ -2,7 +2,8 @@
   name: oil drum
   parent: BaseItem
   description: Used to store liquid gold
-  id: BaseOilDrum
+  id: TP14BaseOilDrum
+  suffix: Empty
   components:
   - type: Sprite
     sprite: _TP/Structures/Storage/Drums.rsi
@@ -26,5 +27,19 @@
   - type: SolutionTransfer
     canChangeTransferAmount: true
   - type: FitsInPumpjack
+  - type: Construction
+    graph: TP14OilDrumGraph
+    node: done
 
-      
+- type: entity
+  parent: TP14BaseOilDrum
+  id: TP14BaseOilDrumCrudeOil
+  suffix: Filled, Crude Oil
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1000
+        reagents:
+        - ReagentId: CrudeOil
+          Quantity: 1000

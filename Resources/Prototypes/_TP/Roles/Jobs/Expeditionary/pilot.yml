@@ -1,0 +1,30 @@
+- type: job
+  id: Pilot
+  name: job-name-pilot
+  description: job-description-pilot
+  playTimeTracker: JobPilot
+  icon: "JobIconShaftMiner"
+  startingGear: PilotGear
+  supervisors: job-supervisors-qm
+  access:
+  - Salvage
+  - Maintenance
+  - External
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Expeditionary
+    time: 3600 # 1 hr
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ExpedPilot # Allows them to use their mech
+
+- type: startingGear
+  id: PilotGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    id: PilotPDA
+    ears: ClothingHeadsetMining
+    gloves: ClothingHandsGlovesFingerless
+    head: ClothingHeadHatHardhatArmored # protect the pilot
+

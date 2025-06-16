@@ -1,13 +1,16 @@
+# Pearls can be read by anything with the PearlScanner and PearlReader tag
+# Pearls can be edited by anything with the PearlEditor tag
+
 - type: entity
   name: pearl
   parent: BaseItem
-  id: TP14BasePearl
+  id: TP14BasePearl # Hypothetically, a single pearl can hold the entire script of The Bee Movie. However in practice this only lags out the local client, so it's FINEEEE.
   description: 'A plain white data pearl, devoid of any etchings or imperfections.'
   components:
   - type: Pearl
     pearlMessage: "This pearl is completely blank."
   - type: Sprite
-    sprite: Textures/_TP/Objects/pearl.rsi
+    sprite: _TP/Objects/pearl.rsi
     state: icon
     color: "#Ffffff"
   - type: Item
@@ -43,5 +46,5 @@
     color: "#800080"
   - type: Pearl
     pearlMessage: "The shark has the silly.
-                   The shork does the silly.
+                   The shork does the silly. # Someone on adminbus requested this, idk what it means
                    The shonk is the silly."

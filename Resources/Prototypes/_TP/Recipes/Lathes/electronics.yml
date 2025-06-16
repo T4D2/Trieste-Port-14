@@ -1,4 +1,4 @@
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
+  parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
   id: TP14ColdplateMachineCircuitboard
   result: TP14ColdplateMachineCircuitboard

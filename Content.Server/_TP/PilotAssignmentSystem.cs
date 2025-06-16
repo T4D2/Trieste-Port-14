@@ -1,22 +1,13 @@
-using Content.Server.Falling;
-using Content.Server.Popups;
+using Content.Server._TP.Falling.Components;
 using Content.Server.Roles;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
-using Content.Shared.Paper;
-using Content.Shared.Timing;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._TP;
 
 public sealed class PilotAssignmentSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
@@ -28,7 +19,7 @@ public sealed class PilotAssignmentSystem : EntitySystem
 
     private void ActivateVerb(EntityUid uid, HumanoidAppearanceComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (!TryComp<StepfatherComponent>(args.User, out var stepfather))
+        if (!TryComp<Shared._TP.StepfatherComponent>(args.User, out var stepfather))
             return;
 
         var verb = new ActivationVerb()
@@ -65,7 +56,7 @@ public sealed class PilotAssignmentSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(args.Examined, out var target))
             return;
 
-        if (!TryComp<StepfatherComponent>(args.Examiner, out var stepfather))
+        if (!TryComp<Shared._TP.StepfatherComponent>(args.Examiner, out var stepfather))
             return;
 
         if (!TryComp<ExpedPilotComponent>(args.Examined, out var pilotComp))

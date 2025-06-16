@@ -1,0 +1,60 @@
+- type: entity
+  id: TP14FlashStorm
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-flash-storm-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    endAnnouncement: station-event-flash-storm-end-announcement
+    weight: 5
+    duration: 181 # Exactly the amount of time that the song lasts.
+    maxOccurrences: 1 # This event is so insanely cataclysmic, genuinely it's kind of insane. ONLY ONCE PER ROUND, OR IT'S LITERAL DOOMSDAY.
+  - type: GameRule
+    delay:
+      min: 5
+      max: 10
+  - type: FlashStormRule
+    stormWeather: "Storm"
+    normalWeather: "Rain"
+
+- type: entity
+  id: TP14RainClear
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-rain-clear-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    endAnnouncement: station-event-rain-clear-end-announcement
+    weight: 3
+    duration: 200
+  - type: GameRule
+    delay:
+      min: 5
+      max: 10
+  - type: WeatherChangeRule
+    targetWeather: "Clear"
+    returnWeather: "Rain"
+    lightning: false
+    sunlight: true # This right here breaks the fabric reality in a couple of interesting ways, so that's fun.
+
+- type: entity
+  id: TP14CloudStormEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-cloud-storm-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    endAnnouncement: station-event-cloud-storm-end-announcement
+    weight: 3
+    duration: 200
+  - type: GameRule
+    delay:
+      min: 10
+      max: 15
+  - type: WeatherChangeRule
+    targetWeather: "CloudStorm"
+    returnWeather: "Rain"
+    lightning: true

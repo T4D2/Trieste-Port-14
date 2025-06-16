@@ -26,3 +26,21 @@
       Cable: 5
       Glass: 2
 
+- type: entity
+  id: TP14SMESAdvancedMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: trieste's advanced SMES machine board
+  description: A machine printed circuit board for a trieste-speciifc Advanced SMES.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: power_mod
+  - type: MachineBoard
+    prototype: TP14SMESAdvancedEmpty
+    stackRequirements:
+      Capacitor: 3
+      CableHV: 30
+    componentRequirements:
+      PowerCell:
+        amount: 8
+        defaultPrototype: PowerCellMedium

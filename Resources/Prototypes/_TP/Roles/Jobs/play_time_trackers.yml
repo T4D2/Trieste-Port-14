@@ -1,0 +1,6 @@
+# Expeditioneers
+- type: playTimeTracker
+  id: JobBasinEngi
+
+- type: playTimeTracker
+  id: JobPilot

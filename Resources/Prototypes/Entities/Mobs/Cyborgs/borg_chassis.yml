@@ -48,7 +48,7 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
-  - type: InGas
+  - type: InGas # TP
     gasId: 9
     damagedByGas: false
     gasThreshold: 50

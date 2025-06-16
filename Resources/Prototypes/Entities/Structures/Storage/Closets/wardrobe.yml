@@ -185,7 +185,7 @@
 - type: entity
   id: WardrobeSalvage
   parent: WardrobeMixed
-  name: salvage wardrobe
+  name: exped wardrobe # TP
   description: Notably not salvaged.
 
 - type: entity

@@ -1,0 +1,9 @@
+- type: department
+  id: Expeditionary
+  name: department-Expeditionary
+  description: department-Expeditioneering-description
+  color: "#846DCF"
+  roles:
+  - SalvageSpecialist
+  - BasinEngi
+  - Pilot

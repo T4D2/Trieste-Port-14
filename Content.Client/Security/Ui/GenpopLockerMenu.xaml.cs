@@ -23,6 +23,7 @@ public sealed partial class GenpopLockerMenu : FancyWindow
     {
         RobustXamlLoader.Load(this);
 
+        IoCManager.Resolve(ref _cfgManager);
         _maxIdJobLength = _cfgManager.GetCVar(CCVars.MaxIdJobLength);
 
         Title = entMan.GetComponent<MetaDataComponent>(owner).EntityName;

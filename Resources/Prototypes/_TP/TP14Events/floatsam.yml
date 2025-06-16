@@ -1,3 +1,7 @@
+# The following objects are intended for the Floatsam trieste game mode
+# The dark-matter reactor has a 1 hour 30 minute meltdown timer, in which it explodes destroying pretty much the whole map it's placed on.
+# IT CURRENTLY SPAMS ANNOUNCEMENTS WHEN IT EXPLODES, IDK WHY SO JUST NOTE THAT.
+
 - type: entity
   id: TP14DarkMatterReactor
   name: dark-matter reactor
@@ -51,7 +55,7 @@
 
 - type: entity
   id: TP14ReactorFuelPort
-  name: reactor fuel port
+  name: reactor fuel port # This is purely for decoration, serves no mechanical purpose
   description: The fuel rod chamber for the dark matter reactor. It's completely fried.
   suffix: Event (decoration)
   placement:
@@ -75,7 +79,7 @@
 
 - type: entity
   id: TP14ReactorInterface
-  name: reactor control terminal
+  name: reactor control terminal # This is purely for decoration, serves no mechanical purpose
   description: The screen cracked and littered with warnings. The word EVACUATE is flashing in the corner.
   suffix: Event (decoration)
   placement:

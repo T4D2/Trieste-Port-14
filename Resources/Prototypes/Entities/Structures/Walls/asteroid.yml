@@ -799,9 +799,9 @@
       state: rock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
-    - type: OreVein
-      oreChance: 0.33
-      oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionStandard
 
 # Ore veins
 - type: entity
@@ -1150,9 +1150,9 @@
       state: rock_wall_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_wall_west
-    - type: OreVein
-      oreChance: 0.33
-      oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
   id: WallRockBasaltCoal

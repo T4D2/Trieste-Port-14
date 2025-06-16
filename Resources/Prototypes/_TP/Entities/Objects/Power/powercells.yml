@@ -3,10 +3,8 @@
   description: A rechargeable energy magazine. For use with compatible NT energy weaponry.
   id: TP14BaseMagCell
   suffix: Full
-  parent: BasePowerCell
+  parent: [BasePowerCell, BaseNanotrasenContraband]
   components:
-  - type: Contraband
-    severity: Nanotrasen
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/MagCell.rsi
     layers:

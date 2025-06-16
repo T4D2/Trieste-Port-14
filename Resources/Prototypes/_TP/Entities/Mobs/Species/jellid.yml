@@ -96,7 +96,7 @@
     spawned:
     - id: FoodMeatSlime
       amount: 5
-  - type: Respirator # Changed to asphyxiation, as burn wasn't working. -Cookie
+  - type: Respirator # Changed to asphyxiation, as burn wasn't working. - Cookie (FatherCheese)
     damage:
       types:
         Asphyxiation: 1

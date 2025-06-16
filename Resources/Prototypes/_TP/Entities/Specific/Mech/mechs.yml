@@ -1,6 +1,6 @@
 - type: entity
   id: TP14MechStepfather
-  parent: [BaseMech, StripableInventoryBase]
+  parent: [BaseMech, BaseMob, StripableInventoryBase]
   name: Rotund Stepfather
   description: A rugged deep-sea mining unit, designed to work in tandem with a Pilot. The onboard AI operates the primary clamp while the pilot operates the modules.
   components:
@@ -141,12 +141,19 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
+      115: Critical
       170: Dead
     stateAlertDict:
       Alive: BorgHealth
+      Critical: BorgCrit
       Dead: BorgDead
     showOverlays: false
     allowRevives: true
@@ -164,3 +171,4 @@
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: Loadout
     prototypes: [Stepfather]
+  - type: Alerts

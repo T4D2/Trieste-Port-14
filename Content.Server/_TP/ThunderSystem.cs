@@ -1,25 +1,16 @@
-using Content.Server.Shuttles.Components;
 using Content.Shared.Gravity;
 using Robust.Shared.Map;
-using Content.Server._TP.Shuttles_components;
-using Content.Server.Shuttles.Systems;
-using Content.Shared.Shuttles.Systems;
-using Robust.Shared.Prototypes;
-using Content.Server.Shuttles.Events;
-using Content.Server.Falling;
 using System.Linq;
 using System.Numerics;
-using Content.Server.Station.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
-using Content.Server.GameTicking.Rules;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 //Summary
-// This code controls the "thunder' systems on Trieste.
-// Basically, every thunder frequency update (which can be modified by CCVAR if an admin turns on "CustomThunder") the game will spawn a "thunder" prototype near each thunder marker.
-// The coordinates it spawns at is randomized each update, within a modifiable radius (either by admins or by events, see FlashStormRule)
-// This creates the effect of flashing lightning. This also has a "storm mode", in which the thunder frequency gets increased, and becomes a brighter prototype.
+// This code controls the "thunder" systems on Trieste.
+// Basically, every thunder frequency update (which CCVAR can modify if an admin turns on "CustomThunder") the game will spawn a "thunder" prototype near each thunder marker.
+// The coordinates it spawns at are randomized each update, within a modifiable radius (either by admins or by events, see FlashStormRule)
+// This creates the effect of flashing lightning. This also has a "storm mode", in which the thunder frequency gets increased and becomes a brighter prototype.
 // It also rolls a 30% chance during storms to strike with a damaging prototype, which explodes and EMPs things near the strike zone.
 // LightningMarkers can be modified to include the normal, storm, and strike prototypes. More lightning markers in an area = more general lightning.
 //Summary

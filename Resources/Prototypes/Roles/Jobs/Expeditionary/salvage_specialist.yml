@@ -10,7 +10,7 @@
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
-  access:
+  access: # TP - Removed Cargo
   - Salvage
   - Maintenance
   - External
@@ -20,7 +20,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     id: SalvagePDA
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetMining # TP
   #storage:
     #back:
     #- Stuff

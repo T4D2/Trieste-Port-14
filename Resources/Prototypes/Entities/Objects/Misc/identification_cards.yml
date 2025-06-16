@@ -221,7 +221,7 @@
 - type: entity
   parent: IDCardStandard
   id: SalvageIDCard
-  name: expeditioneer ID card
+  name: expeditioneer ID card # TP
   components:
   - type: Sprite
     layers:
@@ -232,32 +232,8 @@
 
 - type: entity
   parent: IDCardStandard
-  id: PilotIDCard
-  name: pilot ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idshaftminer
-  - type: PresetIdCard
-    job: Pilot
-
-- type: entity
-  parent: IDCardStandard
-  id: BasinTechIDCard
-  name: basin technician ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idshaftminer
-  - type: PresetIdCard
-    job: BasinEngi
-
-- type: entity
-  parent: IDCardStandard
   id: QuartermasterIDCard
-  name: harbormaster ID card
+  name: harbormaster ID card # TP
   components:
     - type: Sprite
       layers:
@@ -463,7 +439,7 @@
 - type: entity
   parent: IDCardStandard
   id: HoSIDCard
-  name: marshall ID card
+  name: marshal ID card # TP
   components:
   - type: Sprite
     layers:
