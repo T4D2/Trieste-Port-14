@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseSign
+  id: TPSignDivingBell
+  name: diving bell sign
+  description: The core of Trieste, try not to drown.
+  components:
+    - type: Sprite
+      sprite: _TP/Structures/Wallmounts/Signs.rsi
+      state: DivingBell
+
+- type: entity
+  parent: BaseSign
+  id: TPSignJellid
+  name: jellid area sign
+  description: A sign indicating that the area ahead is intended for Jellid crew members and does not have an oxygen atmosphere.
+  components:
+    - type: Sprite
+      sprite: _TP/Structures/Wallmounts/Signs.rsi
+      state: Jellid
