@@ -2,7 +2,7 @@
   parent: BaseSign
   id: TPSignDivingBell
   name: diving bell sign
-  description: A sign indicating the diving bell
+  description: The core of Trieste, try not to drown.
   components:
     - type: Sprite
       sprite: _TP/Structures/Wallmounts/Signs.rsi
