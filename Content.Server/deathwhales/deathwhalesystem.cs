@@ -1,15 +1,9 @@
-using Content.Server.Event.Components;
-using Robust.Shared.Prototypes;
-using Content.Server.Deathwhale;
-using Content.Server.Falling;
-using Content.Shared.Salvage.Fulton;
-using System.Collections.Generic;
-using Content.Server.Mind;
-using Content.Shared.Mind;
-using Content.Shared.Body.Components;
 using Content.Server.Administration.Logs;
+using Content.Server.Deathwhale;
+using Content.Shared.Body.Components;
+using Content.Shared.Salvage.Fulton;
 
-namespace Content.Server.Deathwhale;
+namespace Content.Server.deathwhales;
 
 public sealed class DeathWhaleSystem : EntitySystem
 {

@@ -34,7 +34,7 @@
 - type: entity
   id: LockerQuarterMaster
   parent: LockerBaseSecure
-  name: quartermaster's locker
+  name: harbormaster's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -47,7 +47,7 @@
 - type: entity
   id: LockerSalvageSpecialist
   parent: LockerBase
-  name: salvage specialist's equipment
+  name: expeditioneer's equipment # TP
   description: Nevermind the pickaxe.
   components:
   - type: Appearance
@@ -62,7 +62,7 @@
 - type: entity
   id: LockerCaptain
   parent: LockerBaseSecure
-  name: captain's locker
+  name: overseer's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -302,7 +302,7 @@
 - type: entity
   id: LockerHeadOfSecurity
   parent: LockerBaseSecure
-  name: head of security's locker
+  name: marshal's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals

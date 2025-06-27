@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation, H2O lockers by Cookie (FatherCheese) for Trieste Port 14",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "h2o"
+        },
+        {
+            "name": "h2o_door"
+        },
+        {
+            "name": "h2o_open"
+        },
+        {
+            "name": "welded"
+        }
+    ]
+}

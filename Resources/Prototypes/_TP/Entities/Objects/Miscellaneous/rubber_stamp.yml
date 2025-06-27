@@ -1,0 +1,12 @@
+- type: entity
+  name: solgov rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: TP14RubberStampSG
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-solgov
+    stampedColor: "#c69b17"
+    stampState: "paper_stamp-ce"
+  - type: Sprite
+    state: stamp-ce

@@ -152,7 +152,7 @@
 - type: weather
   id: Clear
   sprite:
-    sprite: /Textures/Effects/atmospherics.rsi
+    sprite: /Textures/_TP/Effects/atmospherics.rsi
     state: clear
   sound:
     path: /Audio/Effects/Weather/snowstorm.ogg

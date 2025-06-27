@@ -1,14 +1,13 @@
-using Content.Server.Storage.Components;
-using Content.Shared.EntityList;
-using Robust.Shared.Prototypes;
-
-namespace Content.Shared._TP;
+namespace Content.Shared.Movement.Components;
 
 [RegisterComponent]
-public partial class JumpingComponent : Component
+public sealed partial class JumpingComponent : Component
 {
     [DataField]
     public bool IsJumping = false;
+
+    [DataField]
+    public bool WasJumping = false;
 
     [DataField]
     public int JumpTime = 5;

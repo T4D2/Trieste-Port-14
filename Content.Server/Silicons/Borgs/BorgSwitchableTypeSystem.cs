@@ -1,4 +1,5 @@
-﻿using Content.Server.Inventory;
+﻿using Content.Server.Atmos.Components;
+using Content.Server.Inventory;
 using Content.Server.Radio.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
@@ -78,5 +79,13 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         }
 
         base.SelectBorgModule(ent, borgType);
+
+        if (borgType == "mining")
+        {
+            var inGas = EnsureComp<InGasComponent>(ent);
+            inGas.GasId = 9; // Water
+            inGas.DamagedByGas = false;
+            inGas.GasThreshold = 50;
+        }
     }
 }

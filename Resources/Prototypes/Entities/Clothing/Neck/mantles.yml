@@ -45,8 +45,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleHOS
-  name: marshall's mantle
-  description: Blasting corporate scum is all in a day's work for this Marshall.
+  name: marshal's mantle # TP
+  description: Blasting corporate scum is all in a day's work for this Marshal.
   components:
   - type: Sprite
     sprite: Clothing/Neck/mantles/hosmantle.rsi

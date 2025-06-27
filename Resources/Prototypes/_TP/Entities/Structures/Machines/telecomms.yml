@@ -1,4 +1,3 @@
-
 - type: entity
   parent: TelecomServer
   id: TP14TelecomRelay
@@ -16,11 +15,14 @@
     sprite: _TP/Structures/Machines/array.rsi
     layers:
     - state: array_INTACT
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: TP14TelecommsDMS
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250 # hard to break, but it's not easy to replace either
+        damage: 300 # hard to break, but it's not easy to replace either
       behaviors:
       - !type:PlaySoundBehavior
         sound:

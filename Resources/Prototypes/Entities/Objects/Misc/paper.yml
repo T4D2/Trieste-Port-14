@@ -165,7 +165,7 @@
 
 - type: entity
   name: cargo invoice
-  parent: Paper
+  parent: TP14PaperJellid # TP
   id: PaperCargoInvoice
   description: 'A single unit of bureaucracy.'
   components:
@@ -359,17 +359,20 @@
   name: syndicate codeword
   description: A leaked codeword to possibly get in touch with the Syndicate.
   categories: [ DoNotMap ]
+  suffix: Syndicate
   components:
   - type: TraitorCodePaper
+    codewordFaction: Syndicate
 
 - type: entity
   parent: [Paper, BaseSyndicateContraband]
   id: AllTraitorCodesPaper
   name: syndicate codewords registry
   description: A registry of all active Syndicate codewords.
-  suffix: Admeme
+  suffix: Admeme, Syndicate
   components:
   - type: TraitorCodePaper
+    codewordFaction: Syndicate
     fakeCodewords: false
     codewordShowAll: true
 

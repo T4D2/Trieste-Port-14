@@ -41,17 +41,17 @@ Making a project like this has been a dream of mine forever, thank you all so mu
 
 Pixeltheaertist - Project Lead
 
-Nolius - Programming, Debugging, General help
+Nolius - Programming, Debugging
 
 Verslebas - Programming, Debugging
 
-Lyroth - Programming, General help
+Lyroth - Programming
 
-Lupino - Debugging, General help
+Lupino - Debugging
 
-McJak - Antagonist Music
+McJak - Music
 
-Målingen - Spriting, General help
+Målingen - Spriting
 
 Quri1q - Spriting
 
@@ -69,7 +69,7 @@ Ermucat - Programming
 
 Slckstr - Bugfixing
 
-FatherCheese - Programming
+FatherCheese - Programming, Debugging, Mapping
 
 Powsu - Programming, Spriting
 
@@ -77,10 +77,18 @@ IamSidzilla - Mapping, Spriting
 
 Lev - Spriting
 
-T4D2 - Programming
+T4D2 - Programming, Mapping, Spriting
 
 CheesePlated - Programming
 
 Nighty - Music
+
+Toast - Music
+
+Cofee - Lobby Art
+
+Dorragon - Programming
+
+Felix - Mapping
 
 

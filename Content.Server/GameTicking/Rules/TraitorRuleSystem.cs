@@ -20,7 +20,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Server.Store.Systems;
 using Content.Shared.Implants;
+using Content.Shared.Implants.Components;
+using Content.Shared.Store.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -37,6 +40,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
 
     private readonly IEntityManager _entityManager = IoCManager.Resolve<IEntityManager>();
@@ -138,21 +142,16 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
 
-            var implantPrototypeId = "UplinkImplant";
-            var implantSystem = _entityManager.System<SharedSubdermalImplantSystem>();
-            implantSystem.AddImplants(traitor, new HashSet<string> { implantPrototypeId });
-
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
-            if (_jobs.MindTryGetJob(mindId, out var prototype))
+            if (_jobs.MindTryGetJob(mindId, out var jobProto))
             {
-                if (startingBalance < prototype.AntagAdvantage) // Can't use Math functions on FixedPoint2
+                startingBalance -= jobProto.AntagAdvantage;
+                if (startingBalance < 0)
                     startingBalance = 0;
-                else
-                    startingBalance = startingBalance - prototype.AntagAdvantage;
             }
 
-            // Choose and generate an Uplink, and return the uplink code if applicable
+            // Choose and generate an Uplink and return the uplink code if applicable
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request start");
             var uplinkParams = RequestUplink(traitor, startingBalance, briefing);
             code = uplinkParams.Item1;
@@ -240,6 +239,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (component.GiveUplinkNT)
         {
             Log.Debug($"MakeNanoTrasenTraitor {ToPrettyString(traitor)} - Uplink start");
+
             var implantPrototypeId = "UplinkImplantNT";
             var implantSystem = _entityManager.System<SharedSubdermalImplantSystem>();
             implantSystem.AddImplants(traitor, new HashSet<string> { implantPrototypeId });
@@ -306,7 +306,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
         var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
 
-        if (pda is not null && uplinked)
+        if (pda != null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
             // Codes are only generated if the uplink is a PDA
@@ -317,17 +317,38 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             {
                 code = generatedCode;
 
-                // If giveUplink is false the uplink code part is omitted
+                // If giveUplink is false, the uplink code part is omitted
                 briefing = string.Format("{0}\n{1}",
                     briefing,
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+
                 return (code, briefing);
             }
         }
-        else if (pda is null && uplinked)
+        else if (pda == null && !uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+
+            var implantPrototypeId = "UplinkImplant";
+            var implantSystem = _entityManager.System<SharedSubdermalImplantSystem>();
+            implantSystem.AddImplants(traitor, new HashSet<string> { implantPrototypeId });
+
+            var query = EntityQueryEnumerator<SubdermalImplantComponent, StoreComponent>();
+            while (query.MoveNext(out var implantUid, out var implantComp, out var storeComp))
+            {
+                // Check if this implant belongs to our traitor and is an uplink
+                if (implantComp.ImplantedEntity == traitor && MetaData(implantUid).EntityPrototype?.ID == implantPrototypeId)
+                {
+                    Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Found uplink implant, setting TC to {startingBalance}");
+
+                    // Set the telecrystal balance
+                    var storeSystem = _entityManager.System<StoreSystem>();
+                    storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> { ["Telecrystal"] = startingBalance }, implantUid, storeComp);
+
+                    break;
+                }
+            }
         }
 
         return (null, briefing);

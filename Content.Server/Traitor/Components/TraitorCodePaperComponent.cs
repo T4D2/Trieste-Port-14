@@ -24,4 +24,12 @@ public sealed partial class TraitorCodePaperComponent : Component
     /// </summary>
     [DataField]
     public bool CodewordShowAll = false;
+
+    /// <summary>
+    ///     The faction that the codewords should be from.
+    ///     Currently, only "Syndicate" and "NanoTrasen" are supported.
+    ///     TRIESTE-SPECIFIC
+    /// </summary>
+    [DataField(required: true)]
+    public string CodewordFaction;
 }

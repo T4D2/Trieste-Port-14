@@ -113,7 +113,7 @@
   suffix: NukeCodes
   components:
     - type: FaxMachine
-      name: "Captain's Office"
+      name: "Overseer's Office"
       receiveNukeCodes: true
     - type: StealTarget
       stealGroup: FaxMachineCaptain

@@ -3,19 +3,9 @@
   name: department-Cargo
   description: department-Cargo-description
   color: "#A46106"
-  roles:
+  roles: # TP - Moved Salvage
   - CargoTechnician
   - Quartermaster
-
-- type: department
-  id: Expeditionary
-  name: department-Expeditionary
-  description: department-Expeditioneering-description
-  color: "#846DCF"
-  roles:
-  - SalvageSpecialist
-  - BasinEngi
-  - Pilot
 
 - type: department
   id: Civilian

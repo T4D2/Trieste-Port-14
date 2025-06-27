@@ -150,7 +150,7 @@
 - type: entity
   parent: DefaultStationBeaconCommand
   id: DefaultStationBeaconCaptainsQuarters
-  suffix: Captain's Quarters
+  suffix: Overseer's Quarters
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-captain
@@ -410,7 +410,7 @@
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconQMRoom
-  suffix: QM's Room
+  suffix: HM's Room
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-qm

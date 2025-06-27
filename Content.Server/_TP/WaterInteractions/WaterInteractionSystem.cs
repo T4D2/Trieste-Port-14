@@ -1,19 +1,15 @@
-﻿using Content.Server.Atmos.Components;
-using Content.Shared.Damage;
-using Content.Shared.TP.Abyss.Components;
+﻿using System.Linq;
 using Content.Server.Atmos.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Overlays;
-using Robust.Shared.Prototypes;
 using Content.Server.Chemistry.EntitySystems;
-using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Damage;
+using Content.Shared.Overlays;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.TP.Abyss.Components;
+using Robust.Server.Audio;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.TP.Abyss.Systems;
+namespace Content.Server._TP.WaterInteractions;
 
 /// <summary>
 /// Water heavy. Lots of water hurt. Too much water makes person look like one of those hydraulic press videos on instagram.
@@ -33,91 +29,121 @@ public sealed class WaterInteractionSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
- public override void Update(float frameTime)
-{
-    _timer += frameTime;
-    _Noisetimer += frameTime;
-
-    if (_Noisetimer >= NoiseTimer)
+    public override void Update(float frameTime)
     {
-        _Noisetimer = 0f;
-    }
+        _timer += frameTime;
+        _Noisetimer += frameTime;
 
-    if (_timer >= UpdateTimer)
-    {
-        // Check all objects affected by water
-        foreach (var inGas in EntityManager.EntityQuery<InGasComponent>())
+        if (_Noisetimer >= NoiseTimer)
         {
-            var uid = inGas.Owner;
+            _Noisetimer = 0f;
+        }
 
-            if (inGas.InWater)
+        if (_timer >= UpdateTimer)
+        {
+            // Create a snapshot of all entities to avoid collection modification during enumeration
+            var entities = EntityManager.EntityQuery<InGasComponent>().ToList();
+
+            // Collect entities that need component modifications
+            var entitiesToRemoveWaterViewer = new List<EntityUid>();
+            var entitiesToAddWaterViewer = new List<EntityUid>();
+
+            // Check all objects affected by water
+            foreach (var inGas in entities)
             {
-                //if (TryComp<SolutionComponent>(uid, out var solution))
-              //  {
+                var uid = inGas.Owner;
 
-              //  if (!_prototypeManager.TryIndex<ReagentPrototype>(solution.FloodReagent, out var water))
-             //   {
-            //        Log.Error("No component for the flooding water!");
-              //      return;
-             //   }
+                if (inGas.InWater)
+                {
+                    //if (TryComp<SolutionComponent>(uid, out var solution))
+                    //  {
 
-               // if (!_solution.TryGetSolution(uid, solution.Solution, out _, out var actualSolution))
-               // {
-               //     return;
-             //   }
+                    //  if (!_prototypeManager.TryIndex<ReagentPrototype>(solution.FloodReagent, out var water))
+                    //   {
+                    //        Log.Error("No component for the flooding water!");
+                    //      return;
+                    //   }
 
-             //   var FillAmount = actualSolution.Volume;
+                    // if (!_solution.TryGetSolution(uid, solution.Solution, out _, out var actualSolution))
+                    // {
+                    //     return;
+                    //   }
 
-             //   _solution.RemoveSolution(FillAmount);
-            //    _solution.AddReagent(water, water.ID, FillAmount);
+                    //   var FillAmount = actualSolution.Volume;
+
+                    //   _solution.RemoveSolution(FillAmount);
+                    //    _solution.AddReagent(water, water.ID, FillAmount);
                 }
 
 
                 // INSERT CONSTANT DEEP RUMBLE LOOP EXACTLY ONE SECOND IN LENGTH
-              //  _audio.PlayPvs(inGas.RumbleSound, uid, AudioParams.Default.WithVolume(9f).WithMaxDistance(0.4f));
-              //  Log.Info($"Rumbling audio for immersed entity {uid}");
+                //  _audio.PlayPvs(inGas.RumbleSound, uid, AudioParams.Default.WithVolume(9f).WithMaxDistance(0.4f));
+                //  Log.Info($"Rumbling audio for immersed entity {uid}");
 
-             //   if (!TryComp<WaterBlockerComponent>(uid, out var blocker)) // If not wearing a mask eyes get hurt by water
-             //   {
-                    EnsureComp<WaterViewerComponent>(uid);
-             //   }
-        //    }
-          //  else
-           // {
-                if (!TryComp<JellidComponent>(uid, out var jellid) && !TryComp<SiliconLawProviderComponent>(uid, out var borg)) // If not a Jellid or borg, remove the water viewing resistance
+                //   if (!TryComp<WaterBlockerComponent>(uid, out var blocker)) // If not wearing a mask eyes get hurt by water
+                //   {
+                // Instead of EnsureComp during iteration, add to list
+                if (!HasComp<WaterViewerComponent>(uid))
                 {
-                    _entityManager.RemoveComponent<WaterViewerComponent>(uid);
+                    entitiesToAddWaterViewer.Add(uid);
                 }
-         //   }
 
-            if (TryComp<FlammableComponent >(uid, out var flame) && inGas.InWater)
-            {
-                if (flame.OnFire) // Put out fire
+                //   }
+                //    }
+                //  else
+                // {
+                if (!TryComp<JellidComponent>(uid, out var jellid) &&
+                    !TryComp<SiliconLawProviderComponent>(uid,
+                        out var borg)) // If not a Jellid or borg, remove the water viewing resistance
                 {
-                    flame.OnFire = false;
-                }
-            }
-
-            // Ignore those wearing abyssal hardsuits
-            if (TryComp<AbyssalProtectedComponent>(uid, out var abyssalProtected))
-            {
-                continue;
-            }
-
-            if (inGas.InWater)
-            {
-                if (inGas.CrushDepth < inGas.WaterAmount)
-                {
-                    // DIE.
-                    var damage = new DamageSpecifier
+                    // Instead of removing immediately, add to list for later processing
+                    if (HasComp<WaterViewerComponent>(uid))
                     {
-                        DamageDict = { ["Blunt"] = 35f }
-                    };
-                    _damageable.TryChangeDamage(uid, damage, origin: uid);
+                        entitiesToRemoveWaterViewer.Add(uid);
+                    }
+                }
+                //   }
+
+                if (TryComp<FlammableComponent>(uid, out var flame) && inGas.InWater)
+                {
+                    if (flame.OnFire) // Put out fire
+                    {
+                        flame.OnFire = false;
+                    }
+                }
+
+                // Ignore those wearing abyssal hardsuits
+                if (TryComp<AbyssalProtectedComponent>(uid, out var abyssalProtected))
+                {
+                    continue;
+                }
+
+                if (inGas.InWater)
+                {
+                    if (inGas.CrushDepth < inGas.WaterAmount)
+                    {
+                        // DIE.
+                        var damage = new DamageSpecifier
+                        {
+                            DamageDict = { ["Blunt"] = 35f }
+                        };
+                        _damageable.TryChangeDamage(uid, damage, origin: uid);
+                    }
                 }
             }
+
+            // Now safely process component modifications after iteration is complete
+            foreach (var uid in entitiesToAddWaterViewer)
+            {
+                EnsureComp<WaterViewerComponent>(uid);
+            }
+
+            foreach (var uid in entitiesToRemoveWaterViewer)
+            {
+                _entityManager.RemoveComponent<WaterViewerComponent>(uid);
+            }
+
+            _timer = 0f;
         }
-        _timer = 0f;
     }
-}
 }

@@ -360,7 +360,7 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitSecurityRed
-  name: marshall's pressure suit helmet
+  name: marshal's pressure suit helmet # TP
   description: A Security pressure suit helmet with the latest not-so top secret NT-HUD software. Pilfered from a drunk HOS.
   components:
   - type: Sprite

@@ -1,6 +1,6 @@
 - type: entity
   id: TP14NanoTraitorCircuitBoard
-  parent: BaseElectronics
+  parent: [BaseElectronics, BaseNanotrasenContraband]
   name: law board (NanoTrasen)
   description: An electronics board containing specialized NT laws.
   components:

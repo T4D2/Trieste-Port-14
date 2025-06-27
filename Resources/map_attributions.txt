@@ -58,7 +58,7 @@
 - files: ["trieste.yml"]
   authors: PixeltheAertist # that's me!!
 
-- files: ["terminal.yml"]
+- files: ["sweewater.yml"]
   authors: PixeltheAertist
 
 

@@ -1,4 +1,3 @@
-
 - type: entity
   name: TX-220 particle pistol
   parent: BaseWeaponBatterySmall
@@ -32,7 +31,7 @@
     fireCost: 60
 
 - type: entity
-  parent: BaseWeaponPowerCellSmall
+  parent: [BaseWeaponBattery, BaseNanotrasenContraband]  # Changed from BaseWeaponPowerCellSmall
   id: TP14WeaponNtBlaster
   name: BM-138 power blaster
   description: A Nanotrasen blaster pistol, utilized by operatives and agents. Contains a magazine port for power cells.
@@ -49,8 +48,19 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: Contraband
-    severity: Nanotrasen
+  # Add magazine slot for power cells
+  - type: ItemSlots
+    slots:
+      battery_slot:
+        name: Battery
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - MagCell
+  - type: ProjectileBatteryAmmoProvider
+    proto: NtBolt
+    fireCost: 50
 
 - type: entity
   name: NT-331 energy carbine
@@ -86,5 +96,3 @@
     fireCost: 33
   - type: StaticPrice
     price: 260
-  - type: Contraband
-    severity: Nanotrasen

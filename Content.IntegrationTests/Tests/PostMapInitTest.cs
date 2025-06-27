@@ -35,13 +35,13 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] NoSpawnMaps =
         {
             "CentComm",
-            "Dart"
+            "Dart",
         };
 
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            AdminTestArenaSystem.ArenaMapPath
+            AdminTestArenaSystem.ArenaMapPath,
         };
 
         private static readonly string[] DoNotMapWhitelist =
@@ -55,6 +55,10 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
             "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
+            "/Maps/triesteLEGACY.yml", // Legacy map
+            "/Maps/triesteOld.yml", // Legacy map
+            "/Maps/Misc/terminalOLD.yml", // Legacy map
+            "/Maps/Misc/terminalOLDER.yml" // Legacy map
         };
 
         private static readonly string[] GameMaps =
@@ -82,8 +86,10 @@ namespace Content.IntegrationTests.Tests
             "Elkridge",
             "Convex",
             "Relic",
-            "dm01-entryway"
-
+            "dm01-entryway",
+            "trieste", // TP
+            "Misc/terminal", // TP
+            "Misc/ocean", // TP
         };
 
         /// <summary>

@@ -1,4 +1,11 @@
+# Chem
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
   id: IncubatorMachineCircuitboard
   result: IncubatorMachineCircuitboard
+  
+# Power
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: TP14SMESAdvancedMachineCircuitboardRecipe
+  result: TP14SMESAdvancedMachineCircuitboard

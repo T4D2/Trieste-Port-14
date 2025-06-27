@@ -7,7 +7,7 @@
     layers:
     - state: green
     - sprite: Objects/Specific/Mech/mecha.rsi
-      state: ripley
+      state: stepfather
   - type: ConditionalSpawner
     prototypes:
     - TP14MechStepfather

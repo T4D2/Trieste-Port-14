@@ -2,7 +2,7 @@
   id: TP14ToolboxNanoTrasenFilled
   name: undetermined borging kit
   description: This is where your borg's specialization lies.
-  parent: [ BaseItem, BaseNanotransenContraband ]
+  parent: [ BaseItem, BaseNanotrasenContraband ]
   suffix: NanoTrasen, Filled
   components:
   - type: Sprite

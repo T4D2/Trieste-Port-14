@@ -1,13 +1,12 @@
-using Content.Shared.Throwing;
-using Content.Shared.Movement.Components;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Gravity;
-using Content.Shared._TP;
+using Content.Shared.Movement.Components;
+using Content.Shared.Throwing;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Movement.Systems;
+namespace Content.Shared._TP.Movement.Systems;
 
-public sealed partial class SharedJumpAbilitySystem : EntitySystem
+public sealed class SharedJumpAbilitySystem : EntitySystem
 {
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -22,18 +21,22 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-
         foreach (var entity in EntityQuery<JumpingComponent>())
         {
+            // To start, we check if an entity is jumping - if not,
+            // continue to the next entity.
+            if (!entity.IsJumping)
+            {
+                continue;
+            }
 
-          if (!entity.IsJumping)
-          {
-              return;
-          }
-          else if (_timing.CurTime >= entity.LastJumped + TimeSpan.FromSeconds(1))
-          {
-              entity.IsJumping = false;
-          }
+            // Now if an entity IS jumping, we set "WasJumping" to true, and
+            // "IsJumping" to false afterward.
+            if (_timing.CurTime >= entity.LastJumped + TimeSpan.FromSeconds(1))
+            {
+                entity.WasJumping = entity.IsJumping;
+                entity.IsJumping = false;
+            }
         }
     }
 
