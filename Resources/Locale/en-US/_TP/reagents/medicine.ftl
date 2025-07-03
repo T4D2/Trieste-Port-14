@@ -14,7 +14,7 @@ reagent-name-leparadine = leparadine
 reagent-desc-leparadine = Stabilises the body's temperature, with a focus on higher temps. Also heals heat and shock burns
 
 reagent-name-lexodine = lexodine
-reagent-desc-lexodine = Aarnessing the power of both lepo and lepa, this medicine heals frostbite, burns, and electical burns, alongside stabilising the body's temperature no matter the extreme. certan damage types are healed quicker at certan temperatures
+reagent-desc-lexodine = Harnessing the power of both lepo and lepa, this medicine heals frostbite, burns, and electrical burns, alongside stabilising the body's temperature no matter the extreme. Certain damage types are healed quicker at certain temperatures
 
 reagent-name-saltwater-solution-brute = rotten eggs
 reagent-desc-saltwater-solution-brute = Made with some ethanol, sea water, and sulfur, this alchoholic drink seems to be able to heal brute wounds
