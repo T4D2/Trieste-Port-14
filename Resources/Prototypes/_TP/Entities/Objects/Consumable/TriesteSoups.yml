@@ -1,34 +1,36 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 
 - type: entity
+  name: Burrito Bowl
   parent: FoodBowlBase
   id: TP14FoodBurritoBowl
-  name: Burrito Bowl
   description: A delicious burrito bowl, fresh from a spaceotle sponsored-chef! #pretty sure chipotle is copyrighted, say hello to spaceotle
   components:
   - type: FlavorProfile
     flavors:
-      - bread
+      - rice
+      - Onion
       - meaty
-      - onion
-      - cheesy
+      - Cheesy
   - type: Sprite
-    sprite: _TP/Objects/Consumable/bowl.rsi
     layers:
-      - state: burritobowl
+    - state: bowl
+    - state: burritobowl
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45
+        maxVol: 40.5
         reagents:
-          - ReagentId: Nutriment
-            Quantity: 25
-          - ReagentId: Protein
-            Quantity: 10
-          - ReagentId: Vitamin
-            Quantity: 10
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Vitamin
+          Quantity: 7
+        - ReagentId: Protein 
+          Quantity: 6.5
+        - ReagentId: Epinephrine
+          Quantity: 2
   - type: Tag
     tags:
     - Meat
-    - Fruit #onions are a fruit, right?
+    - Fruit
     - Soup
