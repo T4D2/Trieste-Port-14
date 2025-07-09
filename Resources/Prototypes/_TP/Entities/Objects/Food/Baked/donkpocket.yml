@@ -22,7 +22,7 @@
           Quantity: 10
   - type: Sprite
     sprite: _TP/Objects/Consumable/jonkpockets.rsi
-    state: jonked-banana
+    state: Jonk
     # note: Add a chemical that causes clwun polymorph when availible, and replace the mute toxin with it.
 
 - type: entity
@@ -43,8 +43,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 8
-        - ReagentId: Omnizine
-          Quantity: 10 # Yes, ten omnizine. Given the rarity of jonk pockets, and the fact that this recipe requires holy water, this is more than fair.
+        - ReagentId: Laughter
+          Quantity: 10 
   - type: Sprite
     sprite: _TP/Objects/Consumable/jonkpockets.rsi
-    state: jonked-banana-Purified
+    state: Purified-Jonk
