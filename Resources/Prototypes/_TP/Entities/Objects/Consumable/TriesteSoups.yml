@@ -16,7 +16,7 @@
     layers:
     - state: bowl
     - sprite: _TP/Objects/Consumable/bowl.rsi
-    - state: Burrito-Bowl
+    - state: burritobowl
   - type: SolutionContainerManager
     solutions:
       food:
