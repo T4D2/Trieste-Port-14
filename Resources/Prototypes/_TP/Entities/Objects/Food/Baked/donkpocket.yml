@@ -9,9 +9,9 @@
   - type: FlavorProfile
     flavors:
       - meaty
-      - sadness
-      - metallic
-      - cheap
+      - slimy
+      - tingly
+      - strange
   - type: SolutionContainerManager
     solutions:
       food:
@@ -33,9 +33,10 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bread
+      - funny
       - meaty
       - holy
+      - pink
   - type: SolutionContainerManager
     solutions:
       food:
