@@ -1,7 +1,7 @@
 #jonk pocket
 
 - type: entity
-  name: Jonk pocket
+  name: jonk pocket
   parent: FoodDonkpocketBase
   id: TP14FoodJonkpocketBanana
   description: A cursed jonk pocket, made with not-so fresh clowns. This is what Jonk! Co. does to it's competitors..
