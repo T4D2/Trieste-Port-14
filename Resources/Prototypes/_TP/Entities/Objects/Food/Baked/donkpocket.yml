@@ -19,7 +19,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 8
-        - ReagentId: MuteToxin
+        - ReagentId: HorrificLaughter
           Quantity: 10
   - type: Sprite
     sprite: _TP/Objects/Consumable/jonkpockets.rsi
