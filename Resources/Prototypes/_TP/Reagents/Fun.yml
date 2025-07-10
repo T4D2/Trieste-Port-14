@@ -5,7 +5,7 @@
   desc: reagent-desc-horrificlaughter
   physicalDesc: reagent-physical-desc-vibrant
   flavor: strange
-  color: "#59b23a"
+  color: "#5273ff"
   slipData:
     requiredSlipSpeed: 3.5 #evil clown juice gotta slip
   metabolisms:
