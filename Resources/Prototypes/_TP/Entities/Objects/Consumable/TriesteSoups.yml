@@ -1,7 +1,7 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 
 - type: entity
-  name: Burrito Bowl
+  name: burrito bowl
   parent: FoodBowlBase
   id: TP14FoodBurritoBowl
   description: A delicious burrito bowl, fresh from a spaceotle sponsored-chef! #pretty sure chipotle is copyrighted, say hello to spaceotle
