@@ -8,10 +8,10 @@
   },
   "states": [
     {
-      "name": "jonked-banana-box"
+      "name": "Jonk-Box"
     },
     {
-      "name": "jonked-banana",
+      "name": "Jonk",
       "delays": [
         [
           0.5,
@@ -26,7 +26,7 @@
       ]
     },
     {
-        "name": "jonked-banana-Purified",
+        "name": "Purified-Jonk",
         "delays": [
           [
             0.5,
