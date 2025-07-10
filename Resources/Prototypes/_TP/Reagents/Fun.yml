@@ -13,7 +13,7 @@
       metabolismRate: 0.25
       effects:
       - !type:Emote
-        emote: Laugh
+        emote: CluwneGiggle
         probability: 0.3
       - !type:PopupMessage
         type: Local
