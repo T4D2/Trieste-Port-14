@@ -1,8 +1,8 @@
 - type: reagent
   id: HorrificLaughter
-  name: reagent-name-horrificlaughter
+  name: reagent-name-horrific-laughter
   group: Toxins
-  desc: reagent-desc-horrificlaughter
+  desc: reagent-desc-horrific-laughter
   physicalDesc: reagent-physical-desc-viscous
   flavor: strange
   color: "#5273ff"
