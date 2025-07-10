@@ -35,4 +35,4 @@
         - !type:ReagentThreshold
           min: 50
 
-
+# Later please remove ability to pick up items from Cluwne while polymorphed
