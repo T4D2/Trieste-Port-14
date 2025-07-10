@@ -24,7 +24,7 @@
   - type: Sprite
     sprite: _TP/Objects/Consumable/jonkpockets.rsi
     state: Jonk
-    # note: Add a chemical that causes clwun polymorph when availible, and replace the mute toxin with it.
+
 
 - type: entity
   name: purified jonk pocket
