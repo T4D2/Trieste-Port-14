@@ -1,10 +1,10 @@
 - type: reagent
-  id: JuiceThatMakesYouWeh
-  name: reagent-name-weh
+  id: horrificlaughter
+  name: reagent-name-horrificlaughter
   group: Toxins
-  desc: reagent-desc-weh
+  desc: reagent-desc-horrificlaughter
   physicalDesc: reagent-physical-desc-vibrant
-  flavor: weh
+  flavor: strange
   color: "#59b23a"
   metabolisms:
     Poison:
