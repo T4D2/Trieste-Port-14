@@ -34,10 +34,10 @@
   components:
   - type: FlavorProfile
     flavors:
+      - pink
       - funny
       - meaty
       - holy
-      - pink
   - type: SolutionContainerManager
     solutions:
       food:
