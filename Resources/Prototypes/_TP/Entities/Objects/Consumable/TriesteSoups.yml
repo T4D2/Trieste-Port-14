@@ -13,10 +13,10 @@
       - meaty
       - Cheesy
   - type: Sprite
+    sprite:  _TP/Objects/Consumable/bowl.rsi
     layers:
-    - state: bowl
-      sprite: _TP/Objects/Consumable/bowl.rsi
-    - state: burritobowl
+        - state: bowl
+        - state: burritobowl
   - type: SolutionContainerManager
     solutions:
       food:
