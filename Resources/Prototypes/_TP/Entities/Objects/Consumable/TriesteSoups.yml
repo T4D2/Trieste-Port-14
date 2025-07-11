@@ -24,11 +24,11 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 18
-        - ReagentId: Vitamin
+        - ReagentId: Rice
           Quantity: 7
         - ReagentId: Protein 
           Quantity: 6.5
-        - ReagentId: Epinephrine
+        - ReagentId: Vitamin
           Quantity: 2
   - type: Tag
     tags:
