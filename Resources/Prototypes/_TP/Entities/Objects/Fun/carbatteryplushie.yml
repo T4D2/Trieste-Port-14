@@ -1,22 +1,51 @@
 - type: entity
-  parent: BaseItem
-  id: TP14carbatteryplushie
+  parent: BasePlushie
+  id: TP14carbatteryplushie 
   name: car battery plushie
   description: An old 21st century novelty plushie playing off nostalgia for cars, Jellids like these for some reason.
   components:
   - type: Sprite
     sprite: _TP/Objects/Misc/carbatteryplush.rsi
     state: icon
-    size: Medium #BECAUSE ITS A CAR BATTERY, JUST PLUSHIE
-    tags:
-      - Payload
   - type: Item
-    sprite: _TP/Objects/Misc/carbatteryplush.rsi
+    heldPrefix: TP14carbatteryplushie
+    size: Medium
   - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: EmitSoundOnActivate
     sound:
       path: /Audio/Effects/PowerSink/electric.ogg
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/PowerSink/electric.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Licoxide
+          Quantity: 10
   - type: UseDelay
     delay: 3.0
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+ 
