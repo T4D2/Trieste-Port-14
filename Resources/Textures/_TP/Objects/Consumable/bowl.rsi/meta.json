@@ -9,15 +9,6 @@
   "states": [
     {
       "name": "burritobowl",
-      "directions": 1,
-      "delays": [
-        [
-          0.4,
-          0.4,
-          0.4,
-          1.4
-        ]
-      ]
     }
 
   ]
