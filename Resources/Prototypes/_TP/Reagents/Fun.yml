@@ -12,8 +12,10 @@
     Poison:
       metabolismRate: 0.25
       effects:
+      - !type:autoEmote
+        autoEmote: CluwneGiggle
       - !type:Emote
-        Emote: CluwneScreams
+        Emote: Laugh
         probability: 0.5
       - !type:PopupMessage
         type: Local
