@@ -499,7 +499,7 @@
   parent: [ClothingHandsBase, BaseGrandTheftContraband]
   id: ClothingHandsKnuckleDustersQM
   name: HM's golden knuckle dusters
-  description: "24karat gold branded with the Solgov logo. A true symbol of the Harbormaster's might, though not a very durable one"
+  description: "24karat gold branded with the Solgov logo. A true symbol of the Harbormaster's might, though not a very durable one."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/KnuckleDusters/goldenknuckleduster.rsi
