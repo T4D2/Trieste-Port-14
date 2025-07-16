@@ -1,4 +1,4 @@
- - type: entity
+- type: entity
   parent: BasePlushie
   id: TP14carbatteryplushie
   name: car battery plushie
@@ -7,16 +7,18 @@
   - type: Sprite
     sprite: _TP/Objects/Misc/carbatteryplush.rsi
     state: icon
+    size: Medium 
+    tags:
+      - Payload
+  - type: Item
+    sprite: _TP/Objects/Misc/carbatteryplush.rsi
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Effects/PowerSink/electric.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Effects/PowerSink/electric.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Effects/PowerSink/electric.ogg
   - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/PowerSink/electric.ogg
   - type: EmitSoundOnCollide
