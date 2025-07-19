@@ -1,0 +1,48 @@
+- type: entity
+  parent: BaseGenerator
+  id: GeneratoradvRTG
+  name: Advanced RTG
+  description: An advanced radioisotope generator specially made by Triese's engineers for long-term power supply.
+  suffix: 15kW
+  components:
+    - type: PowerSupplier
+      supplyRate: 15000
+      # temporary till i sprite it properly
+    - type: Sprite
+      sprite: Structures/Power/Generation/rtg.rsi
+      state: rtg
+    - type: PowerMonitoringDevice
+      sprite: Structures/Power/Generation/rtg.rsi
+      state: rtg
+      # its stronger so logically itd be louder?
+    - type: AmbientSound
+      range: 10
+      sound: 
+       path: /Audio/Ambience/Objects/buzzing.ogg
+    - type: GuideHelp
+      guides:
+      - RTG
+      - Power
+    - type: Destructible
+      thresholds: 
+        - trigger:
+           !type:DamageTrigger
+           damage: 800
+        - behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+        - trigger:
+           !type:DamageTrigger
+           damage: 500
+          behaviors:
+          - !type:PlaySoundBehavior 
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              GeneratorRTGDamaged:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
