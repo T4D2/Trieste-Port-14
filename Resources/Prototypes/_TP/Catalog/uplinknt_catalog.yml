@@ -454,16 +454,6 @@
   categories:
   - UplinkNtChemicals
 
-  - type: listing
-  id: TP14_UplinkVape
-  name: uplink-NTvape-name
-  description: uplink-NTvape-desc
-  productEntity: TP14_NTvape
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkChemicals
-
 ##DISRUPTION
 
 - type: listing
