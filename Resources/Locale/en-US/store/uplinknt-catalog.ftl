@@ -104,4 +104,4 @@ uplink-lawboard-name = NanoTraitor Lawboard
 uplink-lawboard-desc = A specially printed law-board, capable of overwriting an AIs laws and convert them to your side.
 
 uplink-NTknuckleduster-name = Nanotrasen knuckle dusters
-uplink-NTknuckleduster-desc = Standard issue Nanotrasen knuckle dusters, given out to Nt agents and Quartermasters alike
+uplink-NTknuckleduster-desc = Standard issue Nanotrasen knuckle dusters, given out to NT agents and Quartermasters alike
