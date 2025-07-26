@@ -1,6 +1,6 @@
 - type: entity
   id: TP14_NTvape
-  parent: BaseVape
+  parent: BaseItem
   name: Nanotrasen Omni-vape
   description: "Nanotrasen's own Omni-vape, for the modern NT agent. (WARNING:Pour only water into the vape)"
   components:
