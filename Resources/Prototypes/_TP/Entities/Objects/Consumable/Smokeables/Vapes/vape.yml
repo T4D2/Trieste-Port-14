@@ -7,10 +7,9 @@
   - type: Sprite
     sprite: _TP/Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
     state: icon
-  - type: Hypospray
-    onlyAffectsMobs: false
+ - type: Vape
   - type: UseDelay
-    delay: 0.5
+    delay: 2
   - type: SolutionContainerManager
     solutions:
       smokable:
