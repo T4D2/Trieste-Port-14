@@ -24,9 +24,4 @@
     maxFillLevels: 4
     fillBaseName: hypo_fill
     solutionName: hypospray
-- type: SolutionContainerManager
-    reagents:
-      - ReagentId: Nicotine
-        Quantity: 10
-      - ReagentId: Omnizine
-        Quantity: 30
+
