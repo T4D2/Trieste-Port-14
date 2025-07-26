@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: _TP/Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
     state: icon
- - type: Vape
+  - type: Vape
   - type: UseDelay
     delay: 2
   - type: SolutionContainerManager
