@@ -8,14 +8,3 @@
     sprite: _TP/Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
     state: icon
   - type: Vape
-  - type: UseDelay
-    delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 40
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-          - ReagentId: Omnizine
-            Quantity: 30
