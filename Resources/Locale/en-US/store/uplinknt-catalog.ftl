@@ -106,5 +106,5 @@ uplink-lawboard-desc = A specially printed law-board, capable of overwriting an 
 uplink-NTknuckleduster-name = Nanotrasen knuckle dusters
 uplink-NTknuckleduster-desc = Standard issue Nanotrasen knuckle dusters, given out to NT agents and Quartermasters alike
 
-uplink-NTvape-name = Nanotrasen Omni-vape
-uplink-NTvape-desc = Nanotrasen's Omni-vape, specially designed to aerosolize vital medicine
+uplink-NTvape-name = Nanotrasen Branded Vape
+uplink-NTvape-desc = A Nanotrasen branded vape, perfect for hotboxing sweetwater while completing objectives
