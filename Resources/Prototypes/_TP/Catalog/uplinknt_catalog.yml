@@ -454,16 +454,6 @@
   categories:
   - UplinkNtChemicals
 
-- type: listing
-  id: TP14_UplinkVape
-  name: uplink-NTvape-name
-  description: uplink-NTvape-desc
-  productEntity: TP14_NTvape
-  cost:
-     BluespaceCrystal: 1
-  categories:
-  - UplinkNtChemicals
-
 ##DISRUPTION
 
 - type: listing
@@ -701,5 +691,15 @@
   productEntity: CrateCargoGambling
   cost:
     BluespaceCrystal: 13
+  categories:
+  - UplinkNtPointless
+
+  - type: listing
+  id: TP14_UplinkVape
+  name: uplink-NTvape-name
+  description: uplink-NTvape-desc
+  productEntity: TP14_NTvape
+  cost:
+     BluespaceCrystal: 1
   categories:
   - UplinkNtPointless
