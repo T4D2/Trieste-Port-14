@@ -1,13 +1,13 @@
 - type: entity
-  parent: BaseItem
+  parent: BasePlushie
   id: TP14carbatteryplushie
-  name: Car battery plushie
-  description: A plushie that looks like a car battery? It's soft and squishy. Jellids love it.
+  name: car battery plushie
+  description: An old 21st century novelty plushie playing off nostalgia for cars, Jellids like these for some reason.
   components:
   - type: Sprite
     sprite: _TP/Objects/Misc/carbatteryplush.rsi
     state: icon
-    size: Medium #BECAUSE ITS A CAR BATTERY, JUST PLUSHIE
+    size: Medium 
     tags:
       - Payload
   - type: Item
@@ -18,5 +18,22 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/PowerSink/electric.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/PowerSink/electric.ogg
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: TP14carbatteryplushie
   - type: UseDelay
     delay: 3.0
