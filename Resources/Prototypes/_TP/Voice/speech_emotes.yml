@@ -1,1 +1,6 @@
-
+- type: emote
+  id: TP14_HorrificGiggle
+  name: chat-emote-name-horrific-giggle
+  category: Vocal
+  icon: Interface/Emotes/laugh.png
+  chatMessages: ["chat-emote-msg-horrific-giggle"]
