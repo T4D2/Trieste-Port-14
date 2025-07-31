@@ -1,8 +1,8 @@
 - type: entity
   id: TP14_NTvape
   parent: BaseVape
-  name: Nanotrasen Omni-vape
-  description: "Nanotrasen's own Omni-vape, for the modern NT agent. (WARNING:Pour only water into the vape)"
+  name: Nanotrasen branded vape
+  description: "Now even you can rep your favorite mega-corp while hotboxing sweetwater. (WARNING:Pour only water into the vape)"
   components:
   - type: Sprite
     sprite: _TP/Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
