@@ -1,27 +1,11 @@
 - type: entity
   id: TP14_NTvape
-  parent: BaseItem
+  parent: BaseVape
   name: Nanotrasen Omni-vape
   description: "Nanotrasen's own Omni-vape, for the modern NT agent. (WARNING:Pour only water into the vape)"
   components:
   - type: Sprite
     sprite: _TP/Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
     state: icon
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 20
-  - type: RefillableSolution
-    solution: hypospray
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    onlyAffectsMobs: false
-  - type: UseDelay
-    delay: 2
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 4
-    fillBaseName: hypo_fill
-    solutionName: hypospray
+  
 
