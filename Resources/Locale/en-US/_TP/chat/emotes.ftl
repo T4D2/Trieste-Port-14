@@ -1,2 +1,2 @@
 # Names
-chat-emote-name-horrificgiggle = Horrific giggle
+chat-emote-name-horrific-giggle = Horrific giggle
