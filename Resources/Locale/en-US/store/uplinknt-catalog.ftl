@@ -107,4 +107,4 @@ uplink-NTknuckleduster-name = Nanotrasen knuckle dusters
 uplink-NTknuckleduster-desc = Standard issue Nanotrasen knuckle dusters, given out to NT agents and Quartermasters alike
 
 uplink-NTvape-name = Nanotrasen Branded Vape
-uplink-NTvape-desc = A Nanotrasen branded vape, perfect for hotboxing sweetwater while completing objectives
+uplink-NTvape-desc = A Nanotrasen branded vape, perfect for hotboxing sweetwater while completing objectives.
