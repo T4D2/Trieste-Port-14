@@ -75,7 +75,7 @@ Powsu - Programming, Spriting
 
 IamSidzilla - Mapping, Spriting
 
-Lev - Spriting
+Lev - Spriting, Programming
 
 T4D2 - Programming, Mapping, Spriting
 

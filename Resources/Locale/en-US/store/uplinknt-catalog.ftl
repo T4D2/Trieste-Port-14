@@ -102,3 +102,9 @@ uplink-energybomb-desc = A newer prototype, capable of producing a atom-sized re
 
 uplink-lawboard-name = NanoTraitor Lawboard
 uplink-lawboard-desc = A specially printed law-board, capable of overwriting an AIs laws and convert them to your side.
+
+uplink-NTknuckleduster-name = Nanotrasen knuckle dusters
+uplink-NTknuckleduster-desc = Standard issue Nanotrasen knuckle dusters, given out to NT agents and Quartermasters alike
+
+uplink-NTvape-name = Nanotrasen Branded Vape
+uplink-NTvape-desc = A Nanotrasen branded vape, perfect for hotboxing sweetwater while completing objectives.
