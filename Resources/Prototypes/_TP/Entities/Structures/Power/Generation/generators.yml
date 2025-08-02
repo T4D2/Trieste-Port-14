@@ -160,7 +160,7 @@
 
 - type: entity
   parent: BaseGenerator
-  id: TP14GeneratoradvRTG
+  id: GeneratoradvRTG
   name: Advanced RTG
   description: An advanced radioisotope generator specially made by Triese's engineers for long-term power supply.
   suffix: 15kW
@@ -207,7 +207,7 @@
 
 - type: entity
   parent: GeneratoradvRTG
-  id: TP14GeneratoradvRTGDamaged
+  id: GeneratoradvRTGDamaged
   name: damaged Advanced RTG
   description: An advanced radioisotope generator specially made by Triese's engineers for long-term power supply. This one has damaged shielding.
   suffix: 15kW
