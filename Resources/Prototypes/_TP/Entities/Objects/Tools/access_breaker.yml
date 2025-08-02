@@ -3,7 +3,7 @@
   id: NTAccessBreakerUnlimited
   suffix: Unlimited
   name: authentication disruptor
-  description: A rep access configurator, specialized to unlock and erase access from digital locks.
+  description: A repurposed access configurator, specialized to unlock and erase access from digital locks.
   components:
   - type: Emag
     emagType: Access
