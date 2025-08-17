@@ -1493,15 +1493,3 @@
     - item: SuperCloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye2-module }
-
-  - type: entity
-    id: BorgModuleNanotrasenWeapon
-    parent: [ BaseBorgModule, BaseProviderBorgModule ]
-    name: offensive cyborg module
-    components:
-    - type: Sprite
-      layers:
-      - state: service
-    - type: ItemBorgModule
-      hands:
-      - item: WeaponNtBlaster

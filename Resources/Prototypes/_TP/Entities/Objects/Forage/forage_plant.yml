@@ -47,12 +47,14 @@
   - type: Forage
     regrowTime: 300
     loot:
-      All: SerpentsManeGather
+      All:
+        tableId: SerpentsManeGather
 
 - type: entityTable
   id: SerpentsManeGather
   table: !type:AllSelector
-    children: SerpentsManeBulb
+    children:
+    - id: SerpentsManeBulb
 
 - type: entity
   parent: FoodInjectableBase
@@ -99,12 +101,14 @@
   - type: Forage
     regrowTime: 300
     loot:
-      All: TrenchlightWeed
+      All:
+        tableId: TrenchlightWeed
 
 - type: entityTable
   id: TrenchlightWeed
   table: !type:AllSelector
-  - children: TrenchlightLeaf
+    children:
+    - id: TrenchlightLeaf
 
 - type: entity
   parent: FoodInjectableBase

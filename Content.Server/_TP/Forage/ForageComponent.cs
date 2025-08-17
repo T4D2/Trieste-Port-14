@@ -1,6 +1,4 @@
-using Content.Shared.EntityList;
 using Content.Shared.EntityTable.EntitySelectors;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._TP.Forage;
 
