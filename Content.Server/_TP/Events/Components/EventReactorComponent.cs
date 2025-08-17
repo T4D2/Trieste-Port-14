@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Audio;
 
-namespace Content.Server.Event.Components;
+namespace Content.Server._TP.Events.Components;
 
 /// <summary>
 /// Flickers all the lights within a certain radius.
@@ -34,6 +34,12 @@ public sealed partial class EventReactorComponent : Component
 
      [ViewVariables(VVAccess.ReadWrite)]
      public LocId title = "Emergency Alert System";
+
+     /// <summary>
+     ///     Time until explosion in seconds.
+     /// </summary>
+     [DataField]
+     public float RemainingTime = 3700;
 
      /// <summary>
      /// Announcement color

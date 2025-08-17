@@ -2,15 +2,15 @@
 
 using System.Linq;
 using Content.Server.Shuttles.Events;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.TP14.Bell.Components;
 using Content.Shared.TP14.Bell.Systems;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
 
-namespace Content.Server.TP14.Bell.Systems;
+namespace Content.Server._TP.Bell;
 
 public sealed class BellSystem : SharedBellSystem
 {

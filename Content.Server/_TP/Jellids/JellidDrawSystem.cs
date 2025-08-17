@@ -1,11 +1,8 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Power.Events;
 using Content.Server.Chemistry.EntitySystems;
-using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Alert;
 
@@ -16,6 +13,7 @@ namespace Content.Server.Jellid.Systems
         [Dependency] private readonly BatterySystem _battery = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly AlertsSystem _alerts = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!;
 
         public float DrainAmount;
 
@@ -37,7 +35,7 @@ namespace Content.Server.Jellid.Systems
                     {
                         _alerts.ClearAlert(entity.Owner, battery.NoBatteryAlert);
                     }
-                
+
                 float DamageCharge = 20f;
                 if (battery.CurrentCharge < DamageCharge)
                 {
@@ -67,7 +65,7 @@ public override void Update(float frameTime)
         if (!HasComp<JellidComponent>(playerUid))
             continue;
 
-        if (handsComponent.ActiveHand?.HeldEntity is not EntityUid heldItem)
+        if (_hands.GetActiveItem(playerUid) is not { } heldItem)
             continue;
 
         if (!TryComp<BatteryComponent>(heldItem, out var containerBattery))

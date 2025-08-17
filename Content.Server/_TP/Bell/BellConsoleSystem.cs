@@ -1,20 +1,20 @@
 // Taken from https://github.com/emberfall-14/emberfall/pull/4/files with permission
+
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared.TP14.Bell;
-using Content.Shared.TP14.Bell.Components;
-using Content.Shared.TP14.Bell.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Timing;
+using Content.Shared.TP14.Bell;
+using Content.Shared.TP14.Bell.Components;
+using Content.Shared.TP14.Bell.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Server.TP14.Bell.Systems;
+namespace Content.Server._TP.Bell;
 
 public sealed class BellConsoleSystem : SharedBellConsoleSystem
 {
@@ -112,7 +112,7 @@ public sealed class BellConsoleSystem : SharedBellConsoleSystem
         if (ent.Comp.Platform is not { } platform ||
             !TryComp<BellComponent>(platform, out var elevator))
             return;
-            
+
         if (!elevator.CanMove)
         {
             return;
@@ -140,7 +140,7 @@ public sealed class BellConsoleSystem : SharedBellConsoleSystem
     private EntityUid? FindLargestGrid(MapId map)
     {
         if (_station.GetStationInMap(map) is { } station)
-            return _station.GetLargestGrid(Comp<StationDataComponent>(station));
+            return _station.GetLargestGrid(station);
 
         EntityUid? largestGrid = null;
         var largestSize = 0f;

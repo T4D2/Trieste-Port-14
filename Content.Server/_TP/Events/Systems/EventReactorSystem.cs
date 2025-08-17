@@ -1,12 +1,11 @@
 ﻿using Content.Server.Chat.Systems;
-using Content.Server.Event.Components;
 using Content.Server.Ghost;
-using Content.Server.Light.Components;
-using Content.Shared.Explosion.Components;
+using Content.Shared.Light.Components;
 using Content.Shared.Radiation.Components;
+using Content.Shared.Trigger.Systems;
 using Robust.Shared.Random;
 
-namespace Content.Server.TP14Events.Systems;
+namespace Content.Server._TP.Events.Systems;
 
 /// <summary>
 /// This handles reactor events like light flickering and global announcements for the floatsam event.
@@ -18,6 +17,7 @@ public sealed class EventReactorSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly TriggerSystem _trigger = default!;
 
     private float _updateTimer = 0f;
     private float _flickerTimer = 0f;
@@ -39,59 +39,58 @@ public sealed class EventReactorSystem : EntitySystem
 
             if (_updateTimer >= UpdateInterval)
             {
-                foreach (var entity in EntityManager.EntityQuery<EventReactorComponent>())
+                foreach (var entity in EntityManager.EntityQuery<Components.EventReactorComponent>())
                 {
-
+                    entity.RemainingTime -= frameTime;
                     EntityUid uid = entity.Owner;
-                    var component = EntityManager.GetComponent<EventReactorComponent>(uid);
-                    var timer = EntityManager.GetComponent<ActiveTimerTriggerComponent>(uid);
-                    ReactorCheck(uid, component, timer);
+                    var component = EntityManager.GetComponent<Components.EventReactorComponent>(uid);
+                    ReactorCheck(uid, component);
                 }
                 _updateTimer = 0f;
             }
 
             if (_flickerTimer >= FlickerInterval)
             {
-                foreach (var entity in EntityManager.EntityQuery<EventReactorComponent>())
+                foreach (var entity in EntityManager.EntityQuery<Components.EventReactorComponent>())
                 {
                     EntityUid uid = entity.Owner;
-                    var component = entity;
-                    FlickerReactor(uid, component);
+                    FlickerReactor(uid, entity);
                 }
                 _flickerTimer = 0f;
             }
         }
 
 
-     private void ReactorCheck(EntityUid uid, EventReactorComponent component, ActiveTimerTriggerComponent timer)
+     private void ReactorCheck(EntityUid uid, Components.EventReactorComponent component)
      {
-            if (timer.TimeRemaining <= 3600 && !component.FirstWarning)
+
+            if (component is { RemainingTime: <= 3600, FirstWarning: false })
             {
                  _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("first-alert-warning"), component.title, announcementSound: component.Sound, colorOverride: component.Color);
                 component.FirstWarning = true;
             }
 
-            if (timer.TimeRemaining <= 2600 && !component.SecondWarning)
+            if (component is { RemainingTime: <= 2600, SecondWarning: false })
             {
                  _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("second-alert-warning"), component.title, announcementSound: component.Sound, colorOverride: component.Color);
                   EnsureComp<RadiationSourceComponent>(uid);
                 component.SecondWarning = true;
             }
 
-            if (timer.TimeRemaining <= 1800 && !component.ThirdWarning)
+            if (component is { RemainingTime: <= 1800, ThirdWarning: false })
             {
                  _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("third-alert-warning"), component.title, announcementSound: component.Sound, colorOverride: component.Color);
                 component.ThirdWarning = true;
             }
 
-            if (timer.TimeRemaining <= 30 && !component.MeltdownWarning)
+            if (component is { RemainingTime: <= 30,MeltdownWarning: false })
             {
                  _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("meltdown-alert-warning"), component.title, announcementSound: component.MeltdownSound, colorOverride: component.Color);
                 component.MeltdownWarning = true;
             }
     }
 
-     private void FlickerReactor(EntityUid uid, EventReactorComponent component)
+     private void FlickerReactor(EntityUid uid, Components.EventReactorComponent component)
      {
         var lights = GetEntityQuery<PoweredLightComponent>();
         foreach (var light in _lookup.GetEntitiesInRange(uid, component.Radius, LookupFlags.StaticSundries ))

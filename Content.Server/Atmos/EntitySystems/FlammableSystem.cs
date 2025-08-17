@@ -30,6 +30,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Hands.Components;
 using Content.Server.Chemistry.EntitySystems;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -50,6 +51,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -472,9 +474,14 @@ namespace Content.Server.Atmos.EntitySystems
                     if (_inventoryQuery.TryComp(uid, out var inv))
                         _inventory.RelayEvent((uid, inv), ref ev);
 
-                    _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+                    _damageableSystem.TryChangeDamage(uid,
+                        flammable.Damage * flammable.FireStacks * ev.Multiplier,
+                        interruptsDoAfters: false);
 
-                    AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
+                    AdjustFireStacks(uid,
+                        flammable.FirestackFade * (flammable.Resisting ? 10f : 1f),
+                        flammable,
+                        flammable.OnFire);
                 }
                 else
                 {
@@ -483,29 +490,30 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             var playerQuery = EntityQueryEnumerator<HandsComponent>();
-        while (playerQuery.MoveNext(out var playerUid, out var handsComponent))
-       {
-           if (!HasComp<JellidComponent>(playerUid))
-              {
-                  continue;
-              }
+            while (playerQuery.MoveNext(out var playerUid, out var handsComponent))
+            {
 
-           if (handsComponent.ActiveHand?.HeldEntity is not EntityUid heldItem)
-               {
-                   continue;
-               }
+                if (!HasComp<JellidComponent>(playerUid))
+                {
+                    continue;
+                }
 
-           if (!TryComp<FlammableComponent>(heldItem, out var flammable))
-              {
-            continue;
-              }
+                if (_hands.GetActiveItem(playerUid) is not { } heldItem)
+                {
+                    continue;
+                }
 
-        AdjustFireStacks(heldItem, flammable.FireStacks, flammable);
-        if (flammable.FireStacks >= 0)
-        {
-            Ignite(heldItem, heldItem, flammable, playerUid);
-        }
-      }
+                if (!TryComp<FlammableComponent>(heldItem, out var flammable))
+                {
+                    continue;
+                }
+
+                AdjustFireStacks(heldItem, flammable.FireStacks, flammable);
+                if (flammable.FireStacks >= 0)
+                {
+                    Ignite(heldItem, heldItem, flammable, playerUid);
+                }
+            }
         }
     }
 }

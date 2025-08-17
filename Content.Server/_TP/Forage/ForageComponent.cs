@@ -1,4 +1,5 @@
 using Content.Shared.EntityList;
+using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._TP.Forage;
@@ -7,7 +8,7 @@ namespace Content.Server._TP.Forage;
 public sealed partial class ForageComponent : Component
 {
     [DataField, ViewVariables]
-    public Dictionary<string, ProtoId<EntityLootTablePrototype>>? Loot = new();
+    public Dictionary<string, EntityTableSelector>? Loot = new();
 
     /// <summary>
     /// Random shift of the appearing entity during gathering
