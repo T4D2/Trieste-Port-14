@@ -47,7 +47,7 @@
   - type: Forage
     regrowTime: 300
     loot:
-      All:
+      All: !type:NestedSelector
         tableId: SerpentsManeGather
 
 - type: entityTable
@@ -101,7 +101,7 @@
   - type: Forage
     regrowTime: 300
     loot:
-      All:
+      All: !type:NestedSelector
         tableId: TrenchlightWeed
 
 - type: entityTable

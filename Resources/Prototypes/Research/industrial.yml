@@ -148,6 +148,7 @@
   recipeUnlocks:
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
+  - JellidPortableScrubberMachineCircuitBoard # TP
   - HolofanProjector
   technologyPrerequisites:
   - AtmosphericTech

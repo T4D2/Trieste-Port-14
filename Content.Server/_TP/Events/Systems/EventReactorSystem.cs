@@ -1,5 +1,7 @@
 ﻿using Content.Server.Chat.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Ghost;
+using Content.Server.Nuke;
 using Content.Shared.Light.Components;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Trigger.Systems;
@@ -17,7 +19,8 @@ public sealed class EventReactorSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
+
 
     private float _updateTimer = 0f;
     private float _flickerTimer = 0f;
@@ -83,10 +86,17 @@ public sealed class EventReactorSystem : EntitySystem
                 component.ThirdWarning = true;
             }
 
-            if (component is { RemainingTime: <= 30,MeltdownWarning: false })
+            if (component is { RemainingTime: <= 30, MeltdownWarning: false })
             {
                  _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("meltdown-alert-warning"), component.title, announcementSound: component.MeltdownSound, colorOverride: component.Color);
                 component.MeltdownWarning = true;
+            }
+
+            if (component is { RemainingTime: <= 0 })
+            {
+                _explosion.QueueExplosion(uid, "Default", 5000000, 5, 100);
+                RaiseLocalEvent(new NukeExplodedEvent());
+                QueueDel(uid);
             }
     }
 

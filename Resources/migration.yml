@@ -595,7 +595,7 @@ DrinkIrishCarBomb: DrinkIrishSlammer
 
 SettlerSpawner: null
 HermitSpawner: null
-TP14SeaWreckRoomMarker: null
+#TP14SeaWreckRoomMarker: null
 
 # 2025-01-06
 BorgModuleRadiationDetection: null

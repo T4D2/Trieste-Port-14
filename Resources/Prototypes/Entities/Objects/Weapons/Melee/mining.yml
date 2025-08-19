@@ -133,7 +133,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -6
+        Brute: -10 # TP, From Harmony, -6 to -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -147,20 +147,20 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.5  # TP, From Harmony, 1 to 1.5
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 6
-        Slash: 4
+        Blunt: 10  # TP, From Harmony, 6 to 10
+        Slash: 5  # TP, From Harmony, 4 to 5
     soundHit:
       collection: MetalThud
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 6
-        Slash: 2
+        Blunt: 2.5  # TP, From Harmony, 6 to 2.5
+        Slash: 2.5  # TP, From Harmony, 2 to 2.5
         Structural: 30
   - type: GunRequiresWield
   - type: DisarmMalus

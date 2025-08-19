@@ -625,8 +625,8 @@
         - MobState
     damage:
       types:
-        Blunt: 18
-        Slash: 4
+        Blunt: 20  # TP, From Harmony, 18 to 20
+        Slash: 5  # TP, From Harmony, 4 to 5
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
