@@ -9,7 +9,7 @@
   - ShuttleCraft
   - Networking
   - Flooding
-  - TheArtifact
+  - TheArtifact # TP
 
 - type: guideEntry
   id: Construction
@@ -32,6 +32,7 @@
   children:
   - AirlockSecurity
 
+# TP
 - type: guideEntry
   id: TheArtifact
   name: guide-entry-the-artifact
