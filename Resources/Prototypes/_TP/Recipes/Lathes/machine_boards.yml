@@ -3,9 +3,15 @@
   parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
   id: IncubatorMachineCircuitboard
   result: IncubatorMachineCircuitboard
-  
+
 # Power
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: TP14SMESAdvancedMachineCircuitboardRecipe
   result: TP14SMESAdvancedMachineCircuitboard
+
+# Atmospherics
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: JellidPortableScrubberMachineCircuitBoard
+  result: JellidPortableScrubberMachineCircuitBoard
