@@ -1,3 +1,16 @@
+#settler
+- type: startingGear
+  id: SettlerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLoungewear
+    shoes: ClothingShoesLeather
+    id: SettlerIDCard
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterCoatBomber
+    gloves: ClothingHandsGlovesFingerless
+    pocket1: FlashlightLantern
+    pocket2: CrowbarRed
+
 #stepfather
 - type: startingGear
   id: Stepfather

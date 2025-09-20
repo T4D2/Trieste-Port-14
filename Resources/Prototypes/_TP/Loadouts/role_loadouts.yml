@@ -22,3 +22,11 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+- type: roleLoadout
+  id: JobSettler
+  groups:
+  - GroupTankHarness
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
