@@ -1,4 +1,8 @@
-# Expeditioneers
+# Civilian
+- type: playTimeTracker
+  id: JobSettler
+
+# Expeditionary
 - type: playTimeTracker
   id: JobBasinEngi
 
