@@ -190,13 +190,13 @@ public sealed class ShuttleFallSystem : EntitySystem
                 // If the thruster is on, yeehaw. The shuttle is flying
                 if (thruster.IsOn)
                 {
-                    Log.Info("Shuttle is flying");
+                    //Log.Info("Shuttle is flying");
                     atmoThruster.Enabled = true;
                 }
                 else
                 {
                     // If it's off... Uh-oh. You might be screwed.
-                    Log.Info("Shuttle is unable to fly");
+                    //Log.Info("Shuttle is unable to fly");
                     atmoThruster.Enabled = false;
                 }
             }

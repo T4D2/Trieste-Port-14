@@ -15,3 +15,9 @@
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: JellidPortableScrubberMachineCircuitBoard
   result: JellidPortableScrubberMachineCircuitBoard
+
+# Shuttle
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  id: TP14AtmosphericThrusterMachineCircuitboardRecipe
+  result: TP14AtmosphericThrusterMachineCircuitboard
