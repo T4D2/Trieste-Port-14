@@ -1,8 +1,8 @@
 - type: accessLevel
-  id: SettlerAccess
+  id: TP14SettlerAccessLevel
   name: id-card-access-level-settler
 
 - type: accessGroup
-  id: Settler
+  id: TP14SettlerAccessGroup
   tags:
-  - SettlerAccess
+  - TP14SettlerAccess

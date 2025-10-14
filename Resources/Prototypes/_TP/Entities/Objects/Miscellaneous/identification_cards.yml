@@ -2,7 +2,7 @@
 
 - type: entity
   parent: IDCardStandard
-  id: SettlerIDCard
+  id: TP14SettlerIDCard
   name: Settler ID card
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
 
 - type: entity
   parent: IDCardStandard
-  id: PilotIDCard
+  id: TP14PilotIDCard
   name: pilot ID card
   components:
   - type: Sprite
@@ -24,11 +24,11 @@
     - state: default
     - state: idshaftminer
   - type: PresetIdCard
-    job: Pilot
+    job: TP14Pilot
 
 - type: entity
   parent: IDCardStandard
-  id: BasinTechIDCard
+  id: TP14BasinTechIDCard
   name: basin technician ID card
   components:
   - type: Sprite
@@ -36,4 +36,4 @@
     - state: default
     - state: idshaftminer
   - type: PresetIdCard
-    job: BasinEngi
+    job: TP14BasinTech
