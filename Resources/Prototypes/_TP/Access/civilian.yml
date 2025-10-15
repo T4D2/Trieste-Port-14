@@ -1,0 +1,8 @@
+- type: accessLevel
+  id: SettlerAccess
+  name: id-card-access-level-settler
+
+- type: accessGroup
+  id: Settler
+  tags:
+  - SettlerAccess
