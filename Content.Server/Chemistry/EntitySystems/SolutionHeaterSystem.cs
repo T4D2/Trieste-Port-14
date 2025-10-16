@@ -11,6 +11,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Power;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Hands.Systems;
+using Content.Shared._TP.Jellids;
 using Content.Shared.Inventory;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;

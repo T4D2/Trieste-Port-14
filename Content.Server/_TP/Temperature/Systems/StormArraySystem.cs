@@ -63,24 +63,16 @@ public sealed class StormArraySystem : EntitySystem
         if (tempComp.CurrentTemperature >= 100)
         {
             Announcement(Loc.GetString("storm-array-alert-1"),
-                tempComp.CurrentTemperature >= 100,
+                tempComp.CurrentTemperature >= 125,
                 ref arrayComp.FirstAnnouncement);
 
             Announcement(Loc.GetString("storm-array-alert-2"),
-                tempComp.CurrentTemperature >= 200,
+                tempComp.CurrentTemperature >= 250,
                 ref arrayComp.SecondAnnouncement);
 
             Announcement(Loc.GetString("storm-array-alert-3"),
-                tempComp.CurrentTemperature >= 300,
+                tempComp.CurrentTemperature >= 475,
                 ref arrayComp.ThirdAnnouncement);
-
-            Announcement(Loc.GetString("storm-array-alert-4"),
-                tempComp.CurrentTemperature >= 400,
-                ref arrayComp.FourthAnnouncement);
-
-            Announcement(Loc.GetString("storm-array-alert-5"),
-                tempComp.CurrentTemperature >= 450,
-                ref arrayComp.FifthAnnouncement);
 
             // This part handles the explosion at 500 degrees.
             // If the explosion component doesn't exist, however, we return. (This shouldn't happen!)

@@ -143,7 +143,7 @@
     requireAnchored: true
   - type: RadiantTemperature # Constantly heats the air around it
     goalTemperature: 500
-    energyChangedPerSecond: 20 # Around 0.2-0.3 temp change - Cookie (Father Cheese)
+    energyChangedPerSecond: 5 # Around Hopefully around 3-minutes to reach 100. - Cookie (Father Cheese)
   - type: StormArray # Announcements and Temperature
   - type: NodeContainer # For the cold loop
     examinable: true
