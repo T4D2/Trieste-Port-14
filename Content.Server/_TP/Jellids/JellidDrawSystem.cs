@@ -1,6 +1,6 @@
-using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._TP.Jellids;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
@@ -20,19 +20,20 @@ public sealed class JellidDrawSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    public float DrainAmount;
+    private float _drainAmount = 0.5f;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<JellidComponent, ChargeChangedEvent>(OnChargeChanged);
     }
+
     private void OnChargeChanged(Entity<JellidComponent> entity, ref ChargeChangedEvent args)
     {
         if (!TryComp<BatteryComponent>(entity.Owner, out var battery))
             return;
 
-        var alertChange = 300f;
+        const float alertChange = 300f;
         if (battery.CurrentCharge <= alertChange)
         {
             _alerts.ShowAlert(entity.Owner, battery.NoBatteryAlert);
@@ -42,7 +43,7 @@ public sealed class JellidDrawSystem : EntitySystem
             _alerts.ClearAlert(entity.Owner, battery.NoBatteryAlert);
         }
 
-        var damageCharge = 20f;
+        const float damageCharge = 20f;
         if (!(battery.CurrentCharge < damageCharge))
             return;
 
@@ -59,14 +60,14 @@ public sealed class JellidDrawSystem : EntitySystem
         }
     }
 
-        private static readonly ProtoId<TagPrototype> FireproofTag = "PreventsFire";
+    private static readonly ProtoId<TagPrototype> FireproofTag = "PreventsFire";
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         var playerQuery = EntityQueryEnumerator<HandsComponent>();
-        while (playerQuery.MoveNext(out var playerUid, out var handsComponent))
+        while (playerQuery.MoveNext(out var playerUid, out _))
         {
             if (!HasComp<JellidComponent>(playerUid))
                 continue;
@@ -100,26 +101,16 @@ public sealed class JellidDrawSystem : EntitySystem
 
     private void DrainPower(BatteryComponent containerBattery, BatteryComponent internalBattery)
     {
-        // Determine how much charge can be drained
-        float Offset = 0.5f;
-        var drainAmount = Math.Min(containerBattery.CurrentCharge, Offset);
+        _drainAmount = Math.Min(containerBattery.CurrentCharge, 0.5f);
 
         // If there's charge to drain
-        if (drainAmount > 0)
-        {
-            // Directly use the BatterySystem to change the charge values
-            _battery.SetCharge(containerBattery.Owner, containerBattery.CurrentCharge - drainAmount, containerBattery);
-            _battery.SetCharge(internalBattery.Owner, internalBattery.CurrentCharge + drainAmount, internalBattery);
-        }
+        if (!(_drainAmount > 0))
+            return;
 
+        // Directly use the BatterySystem to change the charge values
+        _battery.SetCharge(containerBattery.Owner, containerBattery.CurrentCharge - _drainAmount, containerBattery);
+        _battery.SetCharge(internalBattery.Owner, internalBattery.CurrentCharge + _drainAmount, internalBattery);
     }
 
-    public bool Charging
-    {
-        get
-        {
-            return DrainAmount > 0;
-        }
-    }
-
+    private bool Charging => _drainAmount > 0;
 }

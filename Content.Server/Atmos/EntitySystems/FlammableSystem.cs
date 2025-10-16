@@ -30,6 +30,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Hands.Components;
 using Content.Server.Chemistry.EntitySystems;
+using Content.Shared._TP.Jellids;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
