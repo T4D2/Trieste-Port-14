@@ -3,9 +3,9 @@
   name: job-name-settler
   description: job-description-settler
   playTimeTracker: JobSettler
-  startingGear: SettlerGear
+  startingGear: TP14SettlerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   access:
-  - SettlerAccess
+  - TP14SettlerAccessLevel
   - Maintenance

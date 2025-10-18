@@ -147,5 +147,5 @@
     description: ghost-role-information-settler-description
     rules: ghost-role-information-freeagent-rules
   - type: Loadout
-    prototypes: [ SettlerGear ]
+    prototypes: [ TP14SettlerGear ]
     roleLoadout: [ RoleSurvivalStandard ]
