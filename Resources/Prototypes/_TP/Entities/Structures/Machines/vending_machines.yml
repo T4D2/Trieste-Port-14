@@ -1,0 +1,663 @@
+#clothesmate & winterdrobe equivalent
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineClothes
+  name: clothes-vend
+  description: An industrial vending machine for clothing.
+  components:
+  - type: VendingMachine
+    pack: TP14ClothesVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/industrialclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#e0e0e0"
+
+
+# pride
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineClothesPride
+  name: pride clothes-vend
+  description: An industrial vending machine for pride clothing
+  components:
+  - type: VendingMachine
+    pack: PrideDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/prideclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#d5caba"
+
+
+
+
+
+
+
+#petrochem
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachinePetroChem
+  name: petrochem clothes-vend
+  description: A heavy duty vending machine specializing in petrochem uniforms
+  components:
+  - type: VendingMachine
+    pack: TP14PetroVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/petrochemclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ab3ac7"
+
+
+#bartender
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineBartender
+  name: bartender clothes-vend
+  description: A heavy duty vending machine specializing in bartender uniforms
+  components:
+  - type: VendingMachine
+    pack: BarVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/bartenderclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ff6633"
+
+
+#cargo
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineCargo
+  name: cargo clothes-vend
+  description: A heavy duty vending machine specializing in cagro uniforms
+  components:
+  - type: VendingMachine
+    pack: CargoVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/cargoclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ff7d00"
+
+
+
+#Chaplain
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineChaplain
+  name: chaplain clothes-vend
+  description: A heavy duty vending machine specializing in chaplain uniforms
+  components:
+  - type: VendingMachine
+    pack: ChapVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/chaplainclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ffcc00"
+
+
+
+#Chef
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineChef
+  name: chef clothes-vend
+  description: A heavy duty vending machine specializing in chef uniforms
+  components:
+  - type: VendingMachine
+    pack: ChefVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/chefclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#b3141e"
+
+
+
+#Chem
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineChem
+  name: chemistry clothes-vend
+  description: A heavy duty vending machine specializing in chemistry uniforms
+  components:
+  - type: VendingMachine
+    pack: ChemClothesVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/chemclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ff6600"
+
+
+#detective
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineDet
+  name: detective clothes-vend
+  description: A heavy duty vending machine specializing in detective uniforms
+  components:
+  - type: VendingMachine
+    pack: DetVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/detclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#336ea6"
+
+
+#atmos
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineAtmos
+  name: atmospherics clothes-vend
+  description: A heavy duty vending machine specializing in atmos uniforms
+  components:
+  - type: VendingMachine
+    pack: AtmosVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/atmosclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#39d431"
+
+
+#engi
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineEngi
+  name: engineering clothes-vend
+  description: A heavy duty vending machine specializing in engineer uniforms
+  components:
+  - type: VendingMachine
+    pack: EngiClothesVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/engiclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#39d431"
+
+
+
+#Hydroponics
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineHydro
+  name: hydroponics clothes-vend
+  description: A heavy duty vending machine specializing in hydroponics uniforms
+  components:
+  - type: VendingMachine
+    pack: HydroVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/hydroclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#3164ff"
+
+
+#janitor
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineJanitor
+  name: janitorial clothes-vend
+  description: A heavy duty vending machine specializing in janitorial uniforms
+  components:
+  - type: VendingMachine
+    pack: JaniVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/janitorclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#3164ff"
+
+
+#medical
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachinemedical
+  name: medical clothes-vend
+  description: A heavy duty vending machine specializing in medical uniforms
+  components:
+  - type: VendingMachine
+    pack: MedVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/medicalclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#2ea300"
+
+
+#roboticist
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineRoboticist
+  name: roboticist clothes-vend
+  description: A heavy duty vending machine specializing in roboticist uniforms
+  components:
+  - type: VendingMachine
+    pack: RoboVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/roboticistclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#8b2400"
+
+
+#science
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineScience
+  name: scientist clothes-vend
+  description: A heavy duty vending machine specializing in science uniforms
+  components:
+  - type: VendingMachine
+    pack: SciVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/scienceclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#990099"
+
+
+#sec
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineSec
+  name: sec clothes-vend
+  description: A heavy duty vending machine specializing in SEC uniforms
+  components:
+  - type: VendingMachine
+    pack: SecVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/secclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#990099"
+
+
+# Curator/Librarian
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineClothesLIbrarian
+  name: Librarian clothes-vend
+  description: A heavy duty vending machine specializing in librarian uniforms
+  components:
+  - type: VendingMachine
+    pack: LibrarianVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/librarianclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#17a32c"
+
+
+# lawyer
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineClothesLawyer
+  name: lawyer clothes-vend
+  description: A heavy duty vending machine specializing in lawyer uniforms
+  components:
+  - type: VendingMachine
+    pack: LawVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/lawyerclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#005dbf"
+
+# Theater
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineClothesTheater
+  name: performance clothes-vend
+  description: A heavy duty vending machine specializing in theater costumes
+  components:
+  - type: VendingMachine
+    pack: TheaterVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/theaterclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#c71e12"
+
+
+
+
+# clown/mime
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineClothesClown
+  name: honk-vend
+  description: A heavy duty vending machine specializing in clown and mime costumes
+  components:
+  - type: VendingMachine
+    pack: HonkClothesVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/clownclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ffff00"
+
+
+
+
