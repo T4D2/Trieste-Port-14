@@ -538,7 +538,7 @@
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothesLIbrarian
-  name: Librarian clothes-vend
+  name: librarian clothes-vend
   description: A heavy duty vending machine specializing in librarian uniforms
   components:
   - type: VendingMachine
@@ -658,6 +658,38 @@
     energy: 1.6
     color: "#ffff00"
 
-
-
-
+- type: entity
+  parent: TP14VendingMachineClothesClown
+  id: TP14VendingMachineClothesClownBroken
+  name: honk-vend
+  description: A heavy duty vending machine specializing in clown and mime costumes
+  suffix: Trieste, Damaged, Service
+  components:
+  - type: VendingMachine
+    pack: HonkClothesVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/clownclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ffff00"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+    damage:
+      types:
+        Structural: 150
