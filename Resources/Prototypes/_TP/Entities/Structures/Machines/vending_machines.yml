@@ -2,6 +2,7 @@
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothes
+  suffix: Trieste
   name: clothes-vend
   description: An industrial vending machine for clothing.
   components:
@@ -28,11 +29,11 @@
     energy: 1.6
     color: "#e0e0e0"
 
-
 # pride
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothesPride
+  suffix: Trieste, Pride
   name: pride clothes-vend
   description: An industrial vending machine for pride clothing
   components:
@@ -60,15 +61,11 @@
     color: "#d5caba"
 
 
-
-
-
-
-
-#petrochem
+# Petrochem
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachinePetroChem
+  suffix: Trieste, Petrochem
   name: petrochem clothes-vend
   description: A heavy duty vending machine specializing in petrochem uniforms
   components:
@@ -94,12 +91,15 @@
     radius: 1.8
     energy: 1.6
     color: "#ab3ac7"
+  - type: AccessReader
+    access: [ [ "Engineering" ] ]
 
 
 #bartender
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineBartender
+  suffix: Trieste, Service
   name: bartender clothes-vend
   description: A heavy duty vending machine specializing in bartender uniforms
   components:
@@ -125,14 +125,17 @@
     radius: 1.8
     energy: 1.6
     color: "#ff6633"
+  - type: AccessReader
+    access: [ [ "Bar" ] ]
 
 
 #cargo
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineCargo
+  suffix: Trieste, Cargo
   name: cargo clothes-vend
-  description: A heavy duty vending machine specializing in cagro uniforms
+  description: A heavy duty vending machine specializing in cargo uniforms
   components:
   - type: VendingMachine
     pack: CargoVendInventory
@@ -156,13 +159,14 @@
     radius: 1.8
     energy: 1.6
     color: "#ff7d00"
-
-
+  - type: AccessReader
+    access: [ [ "Cargo" ] ]
 
 #Chaplain
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineChaplain
+  suffix: Trieste, Service
   name: chaplain clothes-vend
   description: A heavy duty vending machine specializing in chaplain uniforms
   components:
@@ -188,13 +192,14 @@
     radius: 1.8
     energy: 1.6
     color: "#ffcc00"
-
-
+  - type: AccessReader
+    access: [ [ "Chapel" ] ]
 
 #Chef
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineChef
+  suffix: Trieste, Service
   name: chef clothes-vend
   description: A heavy duty vending machine specializing in chef uniforms
   components:
@@ -220,13 +225,14 @@
     radius: 1.8
     energy: 1.6
     color: "#b3141e"
-
-
+  - type: AccessReader
+    access: [ [ "Kitchen" ] ]
 
 #Chem
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineChem
+  suffix: Trieste, Medical
   name: chemistry clothes-vend
   description: A heavy duty vending machine specializing in chemistry uniforms
   components:
@@ -252,12 +258,14 @@
     radius: 1.8
     energy: 1.6
     color: "#ff6600"
-
+  - type: AccessReader
+    access: [["Medical"]]
 
 #detective
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineDet
+  suffix: Trieste, Security
   name: detective clothes-vend
   description: A heavy duty vending machine specializing in detective uniforms
   components:
@@ -283,12 +291,15 @@
     radius: 1.8
     energy: 1.6
     color: "#336ea6"
+  - type: AccessReader
+    access: [ [ "Security" ] ]
 
 
 #atmos
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineAtmos
+  suffix: Trieste, Atmospherics, Engineering
   name: atmospherics clothes-vend
   description: A heavy duty vending machine specializing in atmos uniforms
   components:
@@ -314,12 +325,14 @@
     radius: 1.8
     energy: 1.6
     color: "#39d431"
-
+  - type: AccessReader
+    access: [["Engineering"]]
 
 #engi
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineEngi
+  suffix: Trieste, Engineering
   name: engineering clothes-vend
   description: A heavy duty vending machine specializing in engineer uniforms
   components:
@@ -345,13 +358,15 @@
     radius: 1.8
     energy: 1.6
     color: "#39d431"
-
+  - type: AccessReader
+    access: [["Engineering"]]
 
 
 #Hydroponics
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineHydro
+  suffix: Trieste, Service
   name: hydroponics clothes-vend
   description: A heavy duty vending machine specializing in hydroponics uniforms
   components:
@@ -377,12 +392,14 @@
     radius: 1.8
     energy: 1.6
     color: "#3164ff"
-
+  - type: AccessReader
+    access: [["Hydroponics"]]
 
 #janitor
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineJanitor
+  suffix: Trieste, Service
   name: janitorial clothes-vend
   description: A heavy duty vending machine specializing in janitorial uniforms
   components:
@@ -408,12 +425,14 @@
     radius: 1.8
     energy: 1.6
     color: "#3164ff"
-
+  - type: AccessReader
+    access: [["Janitor"]]
 
 #medical
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachinemedical
+  suffix: Trieste, Medical
   name: medical clothes-vend
   description: A heavy duty vending machine specializing in medical uniforms
   components:
@@ -439,12 +458,14 @@
     radius: 1.8
     energy: 1.6
     color: "#2ea300"
-
+  - type: AccessReader
+    access: [["Medical"]]
 
 #roboticist
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineRoboticist
+  suffix: Trieste, Science
   name: roboticist clothes-vend
   description: A heavy duty vending machine specializing in roboticist uniforms
   components:
@@ -470,12 +491,14 @@
     radius: 1.8
     energy: 1.6
     color: "#8b2400"
-
+  - type: AccessReader
+    access: [["Research"]]
 
 #science
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineScience
+  suffix: Trieste, Science
   name: scientist clothes-vend
   description: A heavy duty vending machine specializing in science uniforms
   components:
@@ -501,12 +524,14 @@
     radius: 1.8
     energy: 1.6
     color: "#990099"
-
+  - type: AccessReader
+    access: [["Research"]]
 
 #sec
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineSec
+  suffix: Trieste, Security
   name: sec clothes-vend
   description: A heavy duty vending machine specializing in SEC uniforms
   components:
@@ -532,12 +557,14 @@
     radius: 1.8
     energy: 1.6
     color: "#990099"
-
+  - type: AccessReader
+    access: [["Security"]]
 
 # Curator/Librarian
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothesLIbrarian
+  suffix: Trieste, Service
   name: librarian clothes-vend
   description: A heavy duty vending machine specializing in librarian uniforms
   components:
@@ -563,12 +590,14 @@
     radius: 1.8
     energy: 1.6
     color: "#17a32c"
-
+  - type: AccessReader
+    access: [["Service"]]
 
 # lawyer
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothesLawyer
+  suffix: Trieste, Security
   name: lawyer clothes-vend
   description: A heavy duty vending machine specializing in lawyer uniforms
   components:
@@ -594,11 +623,14 @@
     radius: 1.8
     energy: 1.6
     color: "#005dbf"
+  - type: AccessReader
+    access: [["Lawyer"]]
 
 # Theater
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothesTheater
+  suffix: Trieste
   name: performance clothes-vend
   description: A heavy duty vending machine specializing in theater costumes
   components:
@@ -624,14 +656,14 @@
     radius: 1.8
     energy: 1.6
     color: "#c71e12"
-
-
-
+  - type: AccessReader
+    access: [ [ "Theatre" ] ]
 
 # clown/mime
 - type: entity
   parent: VendingMachine
   id: TP14VendingMachineClothesClown
+  suffix: Trieste
   name: honk-vend
   description: A heavy duty vending machine specializing in clown and mime costumes
   components:
@@ -657,13 +689,15 @@
     radius: 1.8
     energy: 1.6
     color: "#ffff00"
+  - type: AccessReader
+    access: [["Theatre"]]
 
 - type: entity
   parent: TP14VendingMachineClothesClown
   id: TP14VendingMachineClothesClownBroken
   name: honk-vend
   description: A heavy duty vending machine specializing in clown and mime costumes
-  suffix: Trieste, Damaged, Service
+  suffix: Trieste, Damaged
   components:
   - type: VendingMachine
     pack: HonkClothesVendInventory
