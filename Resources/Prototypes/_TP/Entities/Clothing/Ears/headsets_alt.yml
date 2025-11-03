@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingHeadsetAltCentCom
-  id: ClothingHeadsetAltCaskie
+  id: TP14ClothingHeadsetAltCaskie
   name: operative headset
   description: A modular earpiece assigned to Nanotrasen footsoldiers.
   components:
