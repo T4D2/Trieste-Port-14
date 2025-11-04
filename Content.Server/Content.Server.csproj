@@ -14,6 +14,7 @@
     <ServerGarbageCollection>true</ServerGarbageCollection>
     <!-- Fix for NetCord's Windows-specific dependencies on Linux builds -->
     <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">linux-x64</RuntimeIdentifier>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
