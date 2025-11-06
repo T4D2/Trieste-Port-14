@@ -1,5 +1,5 @@
 - type: entity
-  name: fishy spawner
+  name: fish spawner
   id: SpawnMobFish
   parent: MarkerBase
   suffix: Trieste, Spawner, Sea
