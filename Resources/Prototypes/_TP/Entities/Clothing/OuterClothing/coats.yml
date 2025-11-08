@@ -14,8 +14,8 @@
     size: Huge
   - type: Storage
     grid:
-    - 0,0,1,2
-    - 4,0,4,2
+    - 0,0,1,3
+    - 3,0,4,3
     maxItemSize: Huge
     quickEquip: false
 
