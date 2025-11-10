@@ -93,3 +93,6 @@ reagent-desc-seagulltoxin = The droppings of sky rats. Definitely not safe to ea
 
 reagent-name-toxintrash = trash
 reagent-desc-toxintrash = An awful-smelling fluid. Deadly to non-vox.
+
+reagent-name-toxintrash = reprocessed material
+reagent-desc-toxintrash = An awful-smelling slurry efficiently refined from discarded matter. It represents a perfect, zero-waste conversion of salvage into Vox sustenance, though it is a violent poison to others.
