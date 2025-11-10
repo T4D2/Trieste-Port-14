@@ -1,6 +1,24 @@
 # PUT YOUR TAGS IN ALPHABETICAL ORDER - TP is exempt from this!
 - type: Tag
+  id: CascadeOpsUplink
+
+- type: Tag
+  id: DockBell
+
+- type: Tag
+  id: DockTrench
+
+- type: Tag
   id: Drifter
+
+- type: Tag
+  id: Fish
+
+- type: Tag
+  id: Harpoon
+
+- type: Tag
+  id: MagCell
 
 - type: Tag
   id: TP14MagicCandle
@@ -9,4 +27,13 @@
   id: Mimic
 
 - type: Tag
+  id: PearlEditor
+
+- type: Tag
+  id: PearlReader
+
+- type: Tag
   id: PreventsFire
+
+- type: Tag
+  id: SeaWreck
