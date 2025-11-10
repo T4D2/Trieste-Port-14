@@ -21,15 +21,17 @@
         messages: [ "laughter-effect-control-laughter" ]
         probability: 0.2
       - !type:Polymorph
-        prototype: ArtifactCluwne 
+        prototype: ArtifactCluwne
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: HorrificLaughter
           min: 50
       - !type:AdjustReagent
         reagent: HorrificLaughter
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: HorrificLaughter
           min: 50
 
 # Later please remove ability to pick up items from Cluwne while polymorphed

@@ -6,14 +6,16 @@ using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Gravity;
 
 namespace Content.Shared.Silicons.StationAi;
 
+/// <summary>
+///     Added when an entity is inserted into a StationAiCore.
+/// </summary>
 public abstract partial class SharedStationAiSystem
 {
-    /*
-     * Added when an entity is inserted into a StationAiCore.
-     */
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     //TODO: Fix this, please
     private const string JobNameLocId = "job-name-station-ai";
@@ -27,6 +29,7 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
+        SubscribeLocalEvent<StationAiHeldComponent, ChangeLevelEvent>(OnLevelChange);
 
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
@@ -51,7 +54,7 @@ public abstract partial class SharedStationAiSystem
         if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
             return;
 
-        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, core.Owner);
+        _transform.DropNextTo(core.Comp.RemoteEntity.Value, core.Owner);
     }
 
     private void OnLevelChange(Entity<StationAiHeldComponent> ent, ref ChangeLevelEvent args)
@@ -60,12 +63,11 @@ public abstract partial class SharedStationAiSystem
         if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
             return;
 
-            var destination = EntityManager.EntityQuery<TriesteComponent>().FirstOrDefault();
-            if (destination != null)
-            {
-                // Teleport to the first destination's coordinates
-                Transform(core.Comp.RemoteEntity.Value).Coordinates = Transform(destination.Owner).Coordinates;
-            }
+        var query = EntityQueryEnumerator<TriesteComponent>();
+        if (query.MoveNext(out var triesteUid, out _))
+        {
+            _transform.SetCoordinates(core.Comp.RemoteEntity.Value, Transform(triesteUid).Coordinates);
+        }
     }
 
     /// <summary>
@@ -151,7 +153,7 @@ public abstract partial class SharedStationAiSystem
             !ValidateAi((ev.Actor, aiComp))))
         {
             // Don't allow the AI to interact with anything that isn't powered.
-            if (!PowerReceiver.IsPowered(ev.Target))
+            if (!_powerReceiver.IsPowered(ev.Target))
             {
                 ShowDeviceNotRespondingPopup(ev.Actor);
                 ev.Cancel();

@@ -46,12 +46,6 @@ contraband-examine-text-Magical =
         [reagent] [color=#b337b3]This reagent is highly illegal magical contraband![/color]
     }
 
-contraband-examine-text-Nanotrasen =
-    { $ type ->
-        *[item] [color=cyan]This item is highly illegal Nanotrasen contraband![/color]
-        [reagent] [color=cyan]This reagent is highly illegal Nanotrasen contraband![/color]
-    }
-
 contraband-examine-text-avoid-carrying-around = [color=red][italic]You probably want to avoid visibly carrying this around without a good reason.[/italic][/color]
 contraband-examine-text-in-the-clear = [color=green][italic]You should be in the clear to visibly carry this around.[/italic][/color]
 

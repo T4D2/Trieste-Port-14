@@ -10,7 +10,6 @@
   id: AirAlarm # Used by AtmosAlarmableComponent for syncing devices.
 
 - type: Tag
-  id: AirAlarmElectronics
   id: AirAlarmElectronics # ConstructionGraph: AirAlarm
 
 - type: Tag

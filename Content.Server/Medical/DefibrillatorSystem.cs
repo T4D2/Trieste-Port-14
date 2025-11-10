@@ -5,6 +5,7 @@ using Content.Server.Electrocution;
 using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
+using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Chat;
@@ -18,12 +19,10 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Power.Components;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.Power.Events;
 
 namespace Content.Server.Medical;
 
@@ -32,6 +31,7 @@ namespace Content.Server.Medical;
 /// </summary>
 public sealed class DefibrillatorSystem : EntitySystem
 {
+    [Dependency] private readonly BatterySystem _battery = default!; // !! TP14 SPECIFIC !!
     [Dependency] private readonly ChatSystem _chatManager = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -47,7 +47,6 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -181,14 +180,20 @@ public sealed class DefibrillatorSystem : EntitySystem
             !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
-        _audio.PlayPvs(component.ZapSound, uid);
+        // !! TP14 SPECIFIC !!
+        if (!TryComp<BatteryComponent>(target, out var battery))
+            return;
 
-        if (TryComp<BatteryComponent>(target, out var battery))
-        {
-            var batteryAdd = 150f; // If target has a battery (jellid), restores some of their internal energy. This will heal Jellids and prevent instantly dying again.
-            Log.Info("Added charge to jellid.");
-            _battery.SetCharge(target, battery.CurrentCharge + batteryAdd, battery);
-        }
+        // If the target has a battery (Jellids), restores some of their internal energy.
+        // This will heal Jellids and prevent instantly dying again.
+        const float batteryAdd = 150f;
+        var newCharge = battery.CurrentCharge + batteryAdd;
+
+        _battery.SetCharge(target, newCharge);
+        Log.Info($"Added {batteryAdd} charge to {target} battery. New charge: {newCharge}");
+        // !! END OF TP14 SPECIFIC !!
+
+        _audio.PlayPvs(component.ZapSound, uid);
 
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
         if (!TryComp<UseDelayComponent>(uid, out var useDelay))

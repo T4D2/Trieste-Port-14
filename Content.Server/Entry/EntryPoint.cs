@@ -219,7 +219,7 @@ namespace Content.Server.Entry
             IoCManager.Resolve<INullLinkPlayerManager>().Shutdown();
             IoCManager.Resolve<INullLinkEventBusManager>().Shutdown();
             IoCManager.Resolve<IActorRouter>().Shutdown();
-            IoCManager.Resolve<IBugReportManager>().Shutdown();
+            //IoCManager.Resolve<IBugReportManager>().Shutdown(); // Seemingly removed for "not being of quality"
             // Nullink end
         }
 

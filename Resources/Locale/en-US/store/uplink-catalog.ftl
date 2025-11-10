@@ -372,8 +372,8 @@ uplink-clothing-outer-hardsuit-juggernaut-desc = Hyper resilient armor made of m
 uplink-cyberpen-name = Cybersun Pen
 uplink-cyberpen-desc = Cybersun's legal department pen, invaluable for forging documents and escaping prisons. Smells vaguely of hard-light and war profiteering.
 
-uplink-decoy-disk-name = Decoy Nuclear Disk
-uplink-decoy-disk-desc = A piece of plastic with a lenticular printing, made to look like a nuclear authentication disk.
+uplink-decoy-disk-name = Decoy Artifact Bypass Code
+uplink-decoy-disk-desc = A piece of plastic with a lenticular printing, made to look like the artifact bypass code.
 
 uplink-cigarettes-name = Syndicate Smokes Packet
 uplink-cigarettes-desc = Elite cigarettes for elite agents. Infused with medicine for when you need to do more than calm your nerves.

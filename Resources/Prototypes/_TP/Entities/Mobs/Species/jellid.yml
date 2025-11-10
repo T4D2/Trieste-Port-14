@@ -48,6 +48,8 @@
     proto: slime
   - type: Vocal
     sounds:
+      Male: MaleSlime
+      Female: MaleSlime
       Unsexed: MaleSlime
   - type: Temperature
     heatDamageThreshold: 400
@@ -90,7 +92,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: Butcherable
     butcheringType: Spike
     spawned:
