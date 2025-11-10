@@ -1,2 +1,39 @@
+- type: job
+  id: SalvageSpecialist
+  name: job-name-salvagespec
+  description: job-description-salvagespec
+  playTimeTracker: JobSalvageSpecialist
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 1h # TP14 - was 2.5h
+  icon: "JobIconShaftMiner"
+  startingGear: SalvageSpecialistGear
+  supervisors: job-supervisors-qm
+  access:
+#  - Cargo # TP14 - removed cargo access
+  - Salvage
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: SalvageSpecialistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+    id: SalvagePDA
+    ears: ClothingHeadsetMining # TP14 - was ClothingHeadsetCargo
+  #storage:
+    #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: SalvageSpecialistChameleonOutfit
+  job: SalvageSpecialist
+  equipment:
+    head: ClothingHeadHatCargosoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGasExplorer
+    outerClothing: ClothingOuterWinterMiner
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesColorBlack
 
