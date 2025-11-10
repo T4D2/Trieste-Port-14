@@ -180,26 +180,16 @@ public sealed class DefibrillatorSystem : EntitySystem
             !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
-        // !! TP14 SPECIFIC !!
-        if (!TryComp<BatteryComponent>(target, out var battery))
-            return;
-
-        // If the target has a battery (Jellids), restores some of their internal energy.
-        // This will heal Jellids and prevent instantly dying again.
-        const float batteryAdd = 150f;
-        var newCharge = battery.CurrentCharge + batteryAdd;
-
-        _battery.SetCharge(target, newCharge);
-        Log.Info($"Added {batteryAdd} charge to {target} battery. New charge: {newCharge}");
-        // !! END OF TP14 SPECIFIC !!
-
         _audio.PlayPvs(component.ZapSound, uid);
 
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
         if (!TryComp<UseDelayComponent>(uid, out var useDelay))
             return;
+
         _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);
         _useDelay.TryResetDelay((uid, useDelay), id: component.DelayId);
+
+        defibJellid(target);
 
         ICommonSession? session = null;
 
@@ -256,5 +246,21 @@ public sealed class DefibrillatorSystem : EntitySystem
         // TODO clean up this clown show above
         var ev = new TargetDefibrillatedEvent(user, (uid, component));
         RaiseLocalEvent(target, ref ev);
+    }
+
+    private void defibJellid(EntityUid target)
+    {
+                // !! TP14 SPECIFIC !!
+        if (!TryComp<BatteryComponent>(target, out var battery))
+            return;
+
+        // If the target has a battery (Jellids), restores some of their internal energy.
+        // This will heal Jellids and prevent instantly dying again.
+        const float batteryAdd = 150f;
+        var newCharge = battery.CurrentCharge + batteryAdd;
+
+        _battery.SetCharge(target, newCharge);
+        Log.Info($"Added {batteryAdd} charge to {target} battery. New charge: {newCharge}");
+        // !! END OF TP14 SPECIFIC !!
     }
 }
