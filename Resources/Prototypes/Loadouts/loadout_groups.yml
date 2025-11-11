@@ -813,22 +813,22 @@
   id: SalvageSpecialistBackpack
   name: loadout-group-salvage-specialist-backpack
   loadouts:
-  - SalvageSpecialistBackpack
-  - SalvageSpecialistSatchel
-  - SalvageSpecialistDuffel
+  - ClothingBackpackSalvage
+  - ClothingBackpackSatchelSalvage
+  - ClothingBackpackDuffelSalvage
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
   loadouts:
-  - SalvageSpecialistWintercoat
+  - ClothingOuterWinterMiner
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
   name: loadout-group-salvage-specialist-shoes
   loadouts:
-  - SalvageBoots
+  - ClothingShoesBootsSalvage
   - CargoWinterBoots
 
 - type: loadoutGroup
