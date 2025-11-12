@@ -1,31 +1,29 @@
 - type: job
-  id: SalvageSpecialist
-  name: job-name-salvagespec
-  description: job-description-salvagespec
-  playTimeTracker: JobSalvageSpecialist
+  id: TP14Expeditioneer
+  name: job-name-expeditioneer
+  description: job-description-expeditioneer
+  playTimeTracker: TP14ExpeditioneerTracker
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 2.5h
+      department: Expeditionary
+      time: 1h
   icon: "JobIconShaftMiner"
-  startingGear: SalvageSpecialistGear
+  startingGear: TP14ExpeditioneerGear
   supervisors: job-supervisors-qm
   access:
-  - Cargo
   - Salvage
   - Maintenance
   - External
 
 - type: startingGear
-  id: SalvageSpecialistGear
+  id: TP14ExpeditioneerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     id: SalvagePDA
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetMining
 
 - type: chameleonOutfit
-  id: SalvageSpecialistChameleonOutfit
-  job: SalvageSpecialist
+  id: TP14ExpeditioneerChameleonOutfit
+  job: TP14Expeditioneer
   equipment:
     head: ClothingHeadHatCargosoft
     eyes: ClothingEyesGlassesCheapSunglasses

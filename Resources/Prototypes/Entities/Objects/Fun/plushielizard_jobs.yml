@@ -145,8 +145,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobHeadofsecurity
-  name: head of security lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as the head of security. It seems to have been ripped and re-stitched a few times.
+  name: marshal lizard plushie # TP14 - was "Head of Security", same as the line below
+  description: An adorable stuffed toy that resembles a lizardperson as the marshal. It seems to have been ripped and re-stitched a few times.
   components:
   - type: Sprite
     state: headofsecurity
@@ -259,8 +259,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobQuartermaster
-  name: quartermaster lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as the quartermaster. Its covered in sticky residue left behind from thousands of shipment invoices.
+  name: harbormaster lizard plushie # TP14 - Was "quartermaster" - Same as the line below
+  description: An adorable stuffed toy that resembles a lizardperson as the harbormaster. Its covered in sticky residue left behind from thousands of shipment invoices.
   components:
   - type: Sprite
     state: quartermaster

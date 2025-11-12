@@ -1,2 +1,2 @@
 ghost-role-information-settler-name = Settler
-ghost-role-information-settler-desc = One of many settlers in an outpost close to, but not a part of, Trieste.
+ghost-role-information-settler-description = You live at a outpost not affiliated with, but near, Trieste. Feel free to relax and build a community in the depths! (Do not attack each other.)

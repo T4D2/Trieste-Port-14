@@ -312,9 +312,6 @@ ghost-role-information-lost-challenge-cargo-technican-rules = You are not hostil
                                      You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                      You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
-ghost-role-information-settler-name = Settler
-ghost-role-information-settler-description = You live at a outpost not affiliated with, but near, Trieste. Feel free to relax and build a community in the depths! (Do not attack each other.)
-
 ghost-role-information-pirate-name = Pirate
 ghost-role-information-pirate-description = YAARGH!! Ye' be livin in yer pirate cove, near that wretched trade port's legs hidin' from the cops. Could be a good time for some plunderin' though...
 

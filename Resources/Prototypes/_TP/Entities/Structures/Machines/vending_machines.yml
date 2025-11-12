@@ -162,6 +162,39 @@
   - type: AccessReader
     access: [ [ "Cargo" ] ]
 
+# exped
+- type: entity
+  parent: VendingMachine
+  id: TP14VendingMachineExped
+  suffix: Trieste, Expeditionary
+  name: expeditionary clothes-vend
+  description: A heavy duty vending machine specializing in expeditionary uniforms
+  components:
+  - type: VendingMachine
+    pack: TP14ExpedVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _TP/Structures/Machines/VendingMachines/cargoclothesvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#ff7d00"
+  - type: AccessReader
+    access: [ [ "Salvage" ] ]
+
 #Chaplain
 - type: entity
   parent: VendingMachine
