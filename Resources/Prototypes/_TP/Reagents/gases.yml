@@ -22,7 +22,7 @@
           type: [ Jellid ]
         ratios:
           Water: -1.0
-    # Separate metabolism for drowning (applies to non-Jellids by default)
+    # Separate metabolism for drowning
     Gas:
       effects:
       - !type:HealthChange
@@ -33,7 +33,7 @@
             Cold: 0.33
       - !type:AdjustTemperature
         min: 10.00
-        amount: -20
+        amount: -20 # Note: -50000 was apparently too much.
       - !type:PopupMessage
         type: Local
         messages: [ "water-in-lungs" ]

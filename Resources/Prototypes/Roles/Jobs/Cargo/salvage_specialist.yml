@@ -6,12 +6,12 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo
-      time: 1h # TP14 - was 2.5h
+      time: 2.5h
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
   access:
-#  - Cargo # TP14 - removed cargo access
+  - Cargo
   - Salvage
   - Maintenance
   - External
@@ -21,10 +21,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     id: SalvagePDA
-    ears: ClothingHeadsetMining # TP14 - was ClothingHeadsetCargo
-  #storage:
-    #back:
-    #- Stuff
+    ears: ClothingHeadsetCargo
 
 - type: chameleonOutfit
   id: SalvageSpecialistChameleonOutfit
