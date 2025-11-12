@@ -12,3 +12,8 @@
   id: TP14LoadoutHeadwearBucketYellow
   equipment:
     head: TP14ClothingHeadBucketYellow
+
+- type: loadout
+  id: TP14LoadoutHeadwearArmoredHardHat
+  equipment:
+    head: ClothingHeadHatHardhatArmored

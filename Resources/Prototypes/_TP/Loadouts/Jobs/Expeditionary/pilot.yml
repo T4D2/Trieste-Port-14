@@ -29,7 +29,7 @@
   id: TP14GroupPilotHeadwear
   name: loadout-group-headwear-pilot
   loadouts:
-  - ClothingHeadHatHardhatArmored
+  - TP14LoadoutHeadwearArmoredHardHat
   - TP14LoadoutHeadwearBucketBrown
   - TP14LoadoutHeadwearBucketPurple
   - TP14LoadoutHeadwearBucketYellow
