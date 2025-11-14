@@ -1,0 +1,51 @@
+- type: constructionGraph
+  id: TP14ConstructionHarpoon
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: harpoon
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 3
+      - material: Steel
+        amount: 1
+        doAfter: 2
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+    - to: piezoHarpoon
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 3
+      - material: TP14PiezoCrystalShard
+        amount: 1
+        doAfter: 2
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+    - to: bombHarpoon
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 3
+      - material: ExplosivePayload
+        amount: 1
+        doAfter: 2
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+
+  - node: harpoon
+    entity: TP14Harpoon
+
+  - node: piezoHarpoon
+    entity: TP14PiezoHarpoon
+
+  - node: bombHarpoon
+    entity: TP14HarpoonBomb
