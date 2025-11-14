@@ -48,6 +48,9 @@
   id: PearlReader
 
 - type: Tag
+  id: TP14TagPiezoShard
+
+- type: Tag
   id: PreventsFire
 
 - type: Tag
