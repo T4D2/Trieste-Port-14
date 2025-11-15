@@ -150,7 +150,7 @@ public sealed class StormArraySystem : EntitySystem
         var maxHeatFromTempDiff = tempDifference * coolantHeatCapacity;
 
         // Maximum heat transfer based on cooling rate (joules per second)
-        var maxHeatFromRate = comp.MaxCoolingRate * args.dt;
+        var maxHeatFromRate = 50000 * args.dt;
 
         // Take the minimum of the two limits
         var heatTransferred = MathF.Min(maxHeatFromTempDiff, maxHeatFromRate);
