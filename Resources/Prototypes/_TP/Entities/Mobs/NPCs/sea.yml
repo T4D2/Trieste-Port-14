@@ -443,7 +443,7 @@
         state: leaf-sheep-idle
   - type: Clothing
     quickEquip: false
-    sprite: _TP/Mobs/Animals/LeafSHeep/normal.rsi
+    sprite: _TP/Mobs/Animals/LeafSheep/normal.rsi
     equippedPrefix: 0
     slots:
     - HEAD
