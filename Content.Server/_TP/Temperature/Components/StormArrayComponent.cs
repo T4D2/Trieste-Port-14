@@ -24,12 +24,14 @@ public sealed partial class StormArrayComponent : Component
     [DataField]
     public bool FifthAnnouncement = false;
 
+    public string StatusMessage;
+
     #endregion
 
     #region Cooling
 
     [DataField]
-    public int MaxCoolingRate = 50000;
+    public int MaxCoolingRate;
 
     [DataField]
     public float CoolingEfficiency = 0.8F;
