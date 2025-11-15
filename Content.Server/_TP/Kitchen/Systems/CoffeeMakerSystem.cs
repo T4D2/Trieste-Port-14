@@ -300,7 +300,7 @@ public sealed class CoffeeMakerSystem : EntitySystem
                     {
                         _container.Remove(filterEnt, filterContainer);
                         QueueDel(filterEnt);
-                        
+
                         var dirtyEnt = Spawn("TP14CoffeeFilterDirty", Transform(uid).Coordinates);
                         _container.Insert(dirtyEnt, filterContainer);
                     }
