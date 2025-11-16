@@ -822,7 +822,7 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
     pocket1: RegenerativeMesh
-    pocket2: PillCanisterHyperPlatelet
+    pocket2: PillCanisterReinforcement
   inhand:
   - ScalpelAdvanced
   - MedicatedSuture
@@ -840,7 +840,7 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
     pocket1: RegenerativeMesh
-    pocket2: PillCanisterHyperPlatelet
+    pocket2: PillCanisterReinforcement
   inhand:
   - ScalpelAdvanced
   - MedicatedSuture
@@ -858,7 +858,7 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
     pocket1: RegenerativeMesh
-    pocket2: PillCanisterHyperPlatelet
+    pocket2: PillCanisterReinforcement
   inhand:
   - ScalpelAdvanced
   - MedicatedSuture
