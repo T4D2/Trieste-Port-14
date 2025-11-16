@@ -2,7 +2,7 @@
   id: ActivatedAlgae
   name: reagent-name-activated-algae
   desc: reagent-desc-activated-algae
-  group: Protein
+  group: Algae
   physicalDesc: reagent-physical-desc-cloudy
   color: "#8e949b"
   metabolisms:
@@ -23,7 +23,7 @@
   id: StabilizationAlgae
   name: reagent-name-stabilisation-algae
   desc: reagent-desc-stabilisation-algae
-  group: Protein
+  group: Algae
   physicalDesc: reagent-physical-desc-cloudy
   color: "#8e949b"
   metabolisms:
@@ -39,7 +39,7 @@
   id: ReinforcementAlgae
   name: reagent-name-reinforcement-algae
   desc: reagent-desc-reinforcement-algae
-  group: Protein
+  group: Algae
   physicalDesc: reagent-physical-desc-opaque
   color: "#f9e49d"
   metabolisms:
@@ -86,7 +86,7 @@
   id: RegenerationAlgae
   name: reagent-name-regeneration-algae
   desc: reagent-desc-regeneration-algae
-  group: Protein
+  group: Algae
   physicalDesc: reagent-physical-desc-opaque
   color: "#ff6763"
   metabolisms:
@@ -140,7 +140,7 @@
   id: DestabilizedAlgae
   name: reagent-name-destabilized-algae
   desc: reagent-desc-destabilized-algae
-  group: Protein
+  group: Algae
   physicalDesc: reagent-physical-desc-cloudy
   color: "#8e949b"
   metabolisms:
@@ -156,7 +156,7 @@
 - type: reagent
   id: DenaturedProteins
   name: reagent-name-denatured
-  group: Protein
+  group: Algae
   desc: reagent-desc-denatured
   flavor: sour
   color: "#dfe1df"
@@ -167,7 +167,7 @@
 - type: reagent
   id: DormantOrganics
   name: reagent-name-dormant-organics
-  group: Protein
+  group: Algae
   desc: reagent-desc-dormant-organics
   flavor: sour
   color: "#dfe1df"
@@ -177,7 +177,7 @@
 - type: reagent
   id: DecayedProtein
   name: reagent-name-decayed-protein
-  group: Protein
+  group: Algae
   desc: reagent-desc-decayed-protein
   flavor: sour
   color: "#dfe1df"
@@ -187,7 +187,7 @@
 - type: reagent
   id: OxygenatedSaline
   name: reagent-name-oxygenated-saline
-  group: Protein
+  group: Algae
   desc: reagent-desc-oxygenated-saline
   physicalDesc: reagent-physical-desc-salty
   flavor: salty
@@ -209,7 +209,7 @@
   id: AlgalFeedstock
   name: reagent-name-algal-feedstock
   desc: reagent-desc-algal-feedstock
-  group: Protein
+  group: Algae
   physicalDesc: reagent-physical-desc-nondescript
   flavor: Sour
   color: "#7ea863"

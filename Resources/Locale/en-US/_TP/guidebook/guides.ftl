@@ -1,2 +1,2 @@
-guide-entry-protein = Protein
-guide-entry-proteins = Proteins
+guide-entry-algae = Algae
+guide-entry-algal-strains = Algal Strains
