@@ -604,7 +604,7 @@
     pocket1: PillCanisterHyronalin
     pocket2: PillCanisterRandom
   inhand:
-  - SyringeHyperPlatelet
+  - SyringeReinforcement
 
 - type: startingGear
   id: VisitorVirologist
@@ -677,7 +677,7 @@
     eyes: ClothingEyesHudMedical
     outerClothing: ClothingOuterWinterMed
     pocket1: PillCanisterTricordrazine
-    pocket2: PillCanisterHyperPlatelet
+    pocket2: PillCanisterReinforcement
   inhand:
   - SyringeSaline
 
