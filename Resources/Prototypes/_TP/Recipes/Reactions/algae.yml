@@ -7,7 +7,7 @@
       DenaturedProteins:
         amount: 1
   products:
-      DormantProtein: .5
+      DormantOrganics: .5
       DecayedProtein: .5
 
 - type: reaction
