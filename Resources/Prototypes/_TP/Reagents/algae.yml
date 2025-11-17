@@ -4,7 +4,7 @@
   desc: reagent-desc-activated-algae
   group: Algae
   physicalDesc: reagent-physical-desc-cloudy
-  color: "#8e949b"
+  color: "#9ff09c"
   metabolisms:
     Medicine:
       metabolismRate: .05
@@ -25,7 +25,7 @@
   desc: reagent-desc-stabilisation-algae
   group: Algae
   physicalDesc: reagent-physical-desc-cloudy
-  color: "#8e949b"
+  color: "#0ff2bd"
   metabolisms:
     Medicine:
       metabolismRate: .05
@@ -41,7 +41,7 @@
   desc: reagent-desc-reinforcement-algae
   group: Algae
   physicalDesc: reagent-physical-desc-opaque
-  color: "#f9e49d"
+  color: "#06cc21"
   metabolisms:
     Medicine:
       metabolismRate: .05
@@ -88,7 +88,7 @@
   desc: reagent-desc-regeneration-algae
   group: Algae
   physicalDesc: reagent-physical-desc-opaque
-  color: "#ff6763"
+  color: "#ace00d"
   metabolisms:
     Medicine:
       metabolismRate: .05
@@ -142,7 +142,7 @@
   desc: reagent-desc-destabilized-algae
   group: Algae
   physicalDesc: reagent-physical-desc-cloudy
-  color: "#8e949b"
+  color: "#455c44"
   metabolisms:
     Medicine:
       metabolismRate: .05
@@ -170,7 +170,7 @@
   group: Algae
   desc: reagent-desc-dormant-organics
   flavor: sour
-  color: "#dfe1df"
+  color: "#313830"
   physicalDesc: reagent-physical-desc-nondescript
   slippery: false
 
