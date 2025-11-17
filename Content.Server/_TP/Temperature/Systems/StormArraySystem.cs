@@ -1,7 +1,6 @@
 using Content.Server._TP.Temperature.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Destructible;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Radio.EntitySystems;
@@ -11,7 +10,6 @@ using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
 using Content.Shared.NodeContainer;
 using Content.Shared.Temperature.Components;
-using Robust.Shared.Audio;
 
 namespace Content.Server._TP.Temperature.Systems;
 
